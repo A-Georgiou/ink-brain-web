@@ -1,4 +1,6 @@
 // The film: a poster that starts playback, and chapters that seek to each question.
+import { still } from "./motion.js";
+
 export function initFilm() {
     const video = document.querySelector("[data-film]");
     const cover = document.querySelector("[data-film-cover]");
@@ -26,7 +28,7 @@ export function initFilm() {
     for (const link of document.querySelectorAll("[data-play-film]")) {
         link.addEventListener("click", (event) => {
             event.preventDefault();
-            document.getElementById("film").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+            document.getElementById("film").scrollIntoView({ behavior: still() ? "auto" : "smooth" });
             play();
         });
     }

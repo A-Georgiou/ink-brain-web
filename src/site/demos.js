@@ -1,8 +1,7 @@
 // Small live demos: the composer typing, the board tile's tracer, the terminal session and the voice sample.
+import { sleep } from "./explain.js";
+import { still } from "./motion.js";
 import { voice } from "./voice.js";
-
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const still = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // Runs a loop only while its element is on screen.
 function whileVisible(el, loop) {

@@ -27,7 +27,6 @@ function initPanel(figure, tabs) {
     const owner = figure;
     let name = figure.dataset.panel;
     let run = null;
-    let visible = false;
     let started = false;
     let ready;
     const loaded = new Promise((resolve) => (ready = resolve));
@@ -114,12 +113,10 @@ function initPanel(figure, tabs) {
     ).observe(figure);
     new IntersectionObserver(
         ([entry]) => {
-            visible = entry.isIntersecting;
-            if (!visible) {
+            if (!entry.isIntersecting) {
                 voice.stop(owner);
                 body.classList.remove("is-interactive");
-            }
-            else if (!started) play();
+            } else if (!started) play();
         },
         { threshold: 0.45 },
     ).observe(figure);

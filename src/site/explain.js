@@ -4,7 +4,7 @@ import { voice } from "./voice.js";
 export const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // The app's speaking-time estimate, used when there is no recorded line.
-export const readingTime = (text) => Math.min(15_000, Math.max(1_200, String(text).trim().split(/\s+/).length * 340));
+const readingTime = (text) => Math.min(15_000, Math.max(1_200, String(text).trim().split(/\s+/).length * 340));
 
 // A cancellable run: everything awaited through it settles early once stopped.
 export function createRun() {

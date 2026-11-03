@@ -1,8 +1,8 @@
 // Page motion: reveals on scroll, the hero's entrance, hand-drawn rings and card spotlights.
-const still = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+export const still = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // A hand-drawn loop like the user's pen: slightly wobbly and overshooting where it started.
-export function wobble(cx, cy, rx, ry, seed = 7, turns = 1.09) {
+function wobble(cx, cy, rx, ry, seed = 7, turns = 1.09) {
     let n = seed;
     const rnd = () => (n = (n * 16807) % 2147483647) / 2147483647 - 0.5;
     const points = [];

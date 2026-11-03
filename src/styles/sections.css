@@ -510,8 +510,7 @@
     margin: 0;
 }
 
-.art-tiles svg,
-.art-tiles .cube-box {
+.art-tiles svg {
     width: 100%;
     aspect-ratio: 132 / 150;
     border: 1px solid rgba(240, 246, 252, 0.13);

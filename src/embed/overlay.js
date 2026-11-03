@@ -99,7 +99,7 @@ pen.canvas.addEventListener("pointermove", (event) => {
 });
 const lift = () => {
     const points = pen.finish();
-    if (points) post({ type: "stroke", bounds: boundsOf(points), points: points.length });
+    if (points) post({ type: "stroke", bounds: boundsOf(points) });
 };
 pen.canvas.addEventListener("pointerup", lift);
 pen.canvas.addEventListener("pointercancel", lift);
@@ -150,7 +150,7 @@ async function type(text, ms, token) {
     prompt.classList.remove("transcript");
 }
 
-function showBubble({ x = 740, y = 700, question = "", activity = "", text = "", minimized = false }) {
+function showBubble({ x, y, question = "", activity = "", text = "", minimized = false }) {
     const bubble = $("#bubble");
     bubble.classList.remove("hidden");
     bubble.classList.toggle("minimized", minimized);
@@ -217,7 +217,7 @@ const handlers = {
         body.classList.toggle("thinking", thinking);
         body.classList.toggle("speaking", speaking);
     },
-    bubble: (message) => (message.show === false ? $("#bubble").classList.add("hidden") : showBubble(message)),
+    bubble: showBubble,
     draw: ({ shapes, group }) => annotations.draw(shapes, { clear: false, ttl: 0, group }).duration,
     captions,
     toast: ({ text }) => toast(text),

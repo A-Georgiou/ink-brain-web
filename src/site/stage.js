@@ -1,12 +1,13 @@
 // The hero's live demo: Ink Brain explaining a heart diagram on Wikipedia through its real overlay, plus a pen to try it.
 import heart from "../specs/heart-flow.json";
 import { createRun, playSteps, say } from "./explain.js";
+import { still } from "./motion.js";
 import { voice } from "./voice.js";
 
 const QUESTION = "Can you explain how blood flows through the heart?";
 const SUMMARY = "The heart is two pumps working side by side. The right side sends used blood to the lungs to pick up oxygen, and the left side pumps that fresh blood out to the rest of your body. I'll trace the path on the diagram.";
 // Where things sit on the 1512 by 982 point screen; the page starts below the browser's toolbar at y = 155.
-const SCREEN = { w: 1512, h: 982, top: 155 };
+const SCREEN_WIDTH = 1512;
 const FIGURE = { x: 500, y: 190, w: 520, h: 680 };
 const ANSWER_AT = { x: 1072, y: 470 };
 const PILL_AT = { x: 24, y: 930 };
@@ -47,9 +48,8 @@ export function initStage(root) {
     const tryButton = root.querySelector("[data-try]");
     const tryLabel = root.querySelector("[data-try-label]");
     const replay = root.querySelector("[data-stage-start]");
-    const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    new ResizeObserver(([entry]) => root.style.setProperty("--k", String(entry.contentRect.width / SCREEN.w))).observe(screen);
+    new ResizeObserver(([entry]) => root.style.setProperty("--k", String(entry.contentRect.width / SCREEN_WIDTH))).observe(screen);
 
     let ready;
     const loaded = new Promise((resolve) => (ready = resolve));
@@ -175,7 +175,7 @@ export function initStage(root) {
         stopRun();
         send("reset");
         setMode("idle");
-        if (visible && !still) resumeTimer = setTimeout(attract, 900);
+        if (visible && !still()) resumeTimer = setTimeout(attract, 900);
         else replay.hidden = false;
     }
 
@@ -203,7 +203,7 @@ export function initStage(root) {
     addEventListener("keydown", (event) => {
         if (event.code === "Space" && event.altKey && event.shiftKey) {
             event.preventDefault();
-            root.scrollIntoView({ behavior: still ? "auto" : "smooth", block: "center" });
+            root.scrollIntoView({ behavior: still() ? "auto" : "smooth", block: "center" });
             if (mode === "pen") leave();
             else startPen();
         } else if (event.key === "Escape" && mode !== "attract" && mode !== "idle") leave();
@@ -218,13 +218,13 @@ export function initStage(root) {
                     stopRun();
                     setMode("idle");
                 }
-            } else if (mode === "idle" && !still) attract();
+            } else if (mode === "idle" && !still()) attract();
         },
         { threshold: 0 },
     ).observe(root);
 
     frame.src = `${frame.dataset.src}${screen.clientWidth * devicePixelRatio > 1600 ? "?hd" : ""}`;
-    if (still) {
+    if (still()) {
         replay.hidden = false;
         loaded.then(() => setCaption("", "Press Replay to watch Ink Brain explain how blood flows through the heart."));
     }

@@ -75,7 +75,7 @@ export const voice = {
         ended.then(() => {
             if (current?.source === source) current = null;
         });
-        return { ended, duration: buffer.duration };
+        return { ended };
     },
     stop(owner) {
         if (!current || (owner && current.owner !== owner)) return;
@@ -86,7 +86,6 @@ export const voice = {
         }
         current = null;
     },
-    speaking: (owner) => Boolean(current && (!owner || current.owner === owner)),
 };
 
 // Every sound toggle on the page shows and flips the same setting.
