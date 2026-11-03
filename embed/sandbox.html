@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Ink Brain panel</title>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            background: transparent;
+            color: #e6edf3;
+            font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        }
+        #root {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+            touch-action: none;
+        }
+    </style>
+    <script type="module" src="/src/embed/sandbox.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

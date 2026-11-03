@@ -1,0 +1,479 @@
+{
+ "scene": {
+  "objects": [
+   {
+    "color": "#1a1a1a",
+    "id": "esp",
+    "material": "pcb",
+    "region": {
+     "h": 190,
+     "w": 100,
+     "x": 1157,
+     "y": 529
+    },
+    "size": [
+     2.8,
+     0.16
+    ],
+    "type": "base"
+   },
+   {
+    "at": [
+     1207,
+     565
+    ],
+    "color": "#c0c0c0",
+    "footprint": [
+     55,
+     60
+    ],
+    "height": 0.3,
+    "id": "can",
+    "material": "metal",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "at": [
+     1207,
+     712
+    ],
+    "facing": "down",
+    "footprint": [
+     14,
+     10
+    ],
+    "height": 0.3,
+    "id": "usb",
+    "on": "esp",
+    "part": "micro-usb",
+    "type": "part"
+   },
+   {
+    "at": [
+     1163,
+     625
+    ],
+    "color": "#222",
+    "footprint": [
+     8,
+     185
+    ],
+    "height": 0.25,
+    "id": "hl",
+    "material": "plastic",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "at": [
+     1251,
+     625
+    ],
+    "color": "#222",
+    "footprint": [
+     8,
+     185
+    ],
+    "height": 0.25,
+    "id": "hr",
+    "material": "plastic",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "at": [
+     1251,
+     611
+    ],
+    "color": "#58a6ff",
+    "footprint": [
+     8,
+     8
+    ],
+    "height": 0.5,
+    "id": "p18",
+    "label": "GPIO18 → STEP",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "at": [
+     1251,
+     601
+    ],
+    "color": "#3fb950",
+    "footprint": [
+     8,
+     8
+    ],
+    "height": 0.5,
+    "id": "p19",
+    "label": "GPIO19 → DIR",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "at": [
+     1251,
+     620
+    ],
+    "color": "#f2cc60",
+    "footprint": [
+     8,
+     8
+    ],
+    "height": 0.5,
+    "id": "p5",
+    "label": "GPIO5 → EN",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "at": [
+     1251,
+     535
+    ],
+    "color": "#111",
+    "footprint": [
+     8,
+     8
+    ],
+    "height": 0.5,
+    "id": "gnd",
+    "label": "GND",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "at": [
+     1163,
+     535
+    ],
+    "color": "#ff7b72",
+    "footprint": [
+     8,
+     8
+    ],
+    "height": 0.5,
+    "id": "v33",
+    "label": "3V3 → VIO",
+    "on": "esp",
+    "type": "box"
+   },
+   {
+    "color": "#5b2a86",
+    "id": "tmc",
+    "label": "TMC2209",
+    "material": "pcb",
+    "position": [
+     6,
+     0.6,
+     0
+    ],
+    "size": [
+     1.5,
+     0.16,
+     2
+    ],
+    "type": "box"
+   },
+   {
+    "color": "#8a8f98",
+    "id": "heat",
+    "material": "metal",
+    "position": [
+     6,
+     1.1,
+     0
+    ],
+    "size": [
+     0.9,
+     0.8,
+     0.9
+    ],
+    "type": "box"
+   },
+   {
+    "color": "#d4af37",
+    "grid": [
+     1,
+     8
+    ],
+    "id": "lp",
+    "material": "gold",
+    "position": [
+     5.35,
+     0.2,
+     0
+    ],
+    "size": [
+     0.1,
+     0.7,
+     0.1
+    ],
+    "spacing": [
+     0.25,
+     0.25
+    ],
+    "type": "box"
+   },
+   {
+    "color": "#d4af37",
+    "grid": [
+     1,
+     8
+    ],
+    "id": "rp",
+    "material": "gold",
+    "position": [
+     6.65,
+     0.2,
+     0
+    ],
+    "size": [
+     0.1,
+     0.7,
+     0.1
+    ],
+    "spacing": [
+     0.25,
+     0.25
+    ],
+    "type": "box"
+   },
+   {
+    "color": "#222",
+    "id": "nema",
+    "label": "NEMA 17",
+    "material": "metal",
+    "position": [
+     10.5,
+     2.1,
+     0
+    ],
+    "size": [
+     4.2,
+     4.2,
+     4.2
+    ],
+    "type": "box"
+   },
+   {
+    "color": "#c0c0c0",
+    "id": "nshaft",
+    "material": "chrome",
+    "pivot": [
+     10.5,
+     4.2,
+     0
+    ],
+    "position": [
+     10.5,
+     4.9,
+     0
+    ],
+    "radius": 0.25,
+    "rotation": [
+     0,
+     0,
+     0
+    ],
+    "type": "cylinder"
+   },
+   {
+    "color": "#333",
+    "id": "psu",
+    "label": "12–24 V supply",
+    "material": "plastic",
+    "position": [
+     6,
+     0.6,
+     4.5
+    ],
+    "size": [
+     3,
+     1.2,
+     1.8
+    ],
+    "type": "box"
+   },
+   {
+    "color": "#1e3a8a",
+    "height": 1,
+    "id": "cap",
+    "label": "100µF cap",
+    "position": [
+     7.3,
+     1,
+     2.3
+    ],
+    "radius": 0.3,
+    "type": "cylinder"
+   },
+   {
+    "color": "#58a6ff",
+    "from": "p18",
+    "hidden": true,
+    "id": "ws",
+    "to": [
+     5.35,
+     0.6,
+     -0.6
+    ],
+    "type": "wire"
+   },
+   {
+    "color": "#3fb950",
+    "from": "p19",
+    "hidden": true,
+    "id": "wd",
+    "to": [
+     5.35,
+     0.6,
+     -0.85
+    ],
+    "type": "wire"
+   },
+   {
+    "color": "#f2cc60",
+    "from": "p5",
+    "hidden": true,
+    "id": "we",
+    "to": [
+     5.35,
+     0.6,
+     0.85
+    ],
+    "type": "wire"
+   },
+   {
+    "color": "#ff7b72",
+    "from": "v33",
+    "hidden": true,
+    "id": "wv",
+    "to": [
+     6.65,
+     0.6,
+     0.6
+    ],
+    "type": "wire"
+   },
+   {
+    "color": "#111",
+    "from": "gnd",
+    "hidden": true,
+    "id": "wg",
+    "to": [
+     6.65,
+     0.6,
+     0.85
+    ],
+    "type": "wire"
+   },
+   {
+    "color": "#ff4040",
+    "from": "psu",
+    "hidden": true,
+    "id": "wm",
+    "to": [
+     6.65,
+     0.6,
+     -0.85
+    ],
+    "type": "wire"
+   },
+   {
+    "color": "#aaa",
+    "from": "nema",
+    "hidden": true,
+    "id": "coil",
+    "style": "ribbon",
+    "to": [
+     6.65,
+     0.6,
+     -0.2
+    ],
+    "type": "wire",
+    "width": 0.5
+   }
+  ]
+ },
+ "steps": [
+  {
+   "say": "Here's the TMC2209 module. The left row of pins takes control signals, and the right row takes power and the motor.",
+   "scene": [
+    {
+     "do": "highlight",
+     "target": "tmc"
+    }
+   ]
+  },
+  {
+   "say": "Run three wires: GPIO 18 to STEP, GPIO 19 to DIR, and GPIO 5 to EN. EN is active low, so the motor only runs when that pin is low.",
+   "scene": [
+    {
+     "do": "show",
+     "target": "ws"
+    },
+    {
+     "delay": 0.4,
+     "do": "show",
+     "target": "wd"
+    },
+    {
+     "delay": 0.8,
+     "do": "show",
+     "target": "we"
+    }
+   ]
+  },
+  {
+   "say": "Logic power is the ESP32's 3V3 pin to VIO, and GND to GND.",
+   "scene": [
+    {
+     "do": "show",
+     "target": "wv"
+    },
+    {
+     "do": "show",
+     "target": "wg"
+    }
+   ]
+  },
+  {
+   "say": "The motor gets its own 12 to 24 volt supply on VM and GND, with a 100 microfarad capacitor across it. Make sure that ground is shared with the ESP32.",
+   "scene": [
+    {
+     "do": "show",
+     "target": "wm"
+    },
+    {
+     "do": "highlight",
+     "target": "cap"
+    }
+   ]
+  },
+  {
+   "say": "Finally, the NEMA 17's four wires go to A1, A2, B1 and B2, one coil per pair. Each pulse on STEP moves it one step, and DIR sets the direction.",
+   "scene": [
+    {
+     "do": "show",
+     "target": "coil"
+    },
+    {
+     "along": "ws",
+     "color": "#58a6ff",
+     "do": "flow"
+    },
+    {
+     "axis": "y",
+     "do": "spin",
+     "target": "nshaft",
+     "value": 0.5
+    }
+   ]
+  }
+ ],
+ "title": "ESP32 → TMC2209 → NEMA 17"
+}

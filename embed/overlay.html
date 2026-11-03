@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Ink Brain overlay replay</title>
+    <script type="module" src="/src/embed/overlay.js"></script>
+</head>
+<body>
+    <picture id="page"></picture>
+    <div id="glow" aria-hidden="true"></div>
+    <div id="shutter" aria-hidden="true"></div>
+    <div id="boards" aria-hidden="true"></div>
+    <svg id="annotations" aria-hidden="true"></svg>
+    <div id="labels" aria-hidden="true"></div>
+    <canvas id="ink"></canvas>
+    <div id="ripples" aria-hidden="true"></div>
+    <div id="pointer" class="hidden" aria-hidden="true">
+        <svg viewBox="0 0 28 28" width="28" height="28"><path d="M4 3 L24 13 L14.6 15.6 L10 25 Z" /></svg>
+        <span class="pointer-label"></span>
+    </div>
+    <div id="pen" class="hidden" aria-hidden="true"></div>
+
+    <section id="bubble" class="card hidden">
+        <header>
+            <span class="badge"><span class="mini-orb"></span><span class="bubble-target">Ink Brain</span></span>
+            <span class="bubble-activity"></span>
+            <button type="button" class="icon-button bubble-stop" title="Stop speaking"></button>
+            <button type="button" class="icon-button bubble-close" title="Dismiss"></button>
+        </header>
+        <p class="bubble-question"></p>
+        <div class="bubble-body markdown"></div>
+    </section>
+
+    <div id="dock"><span id="dock-orb" class="orb"></span></div>
+
+    <form id="composer" class="card hidden" autocomplete="off">
+        <div class="orb"></div>
+        <input id="prompt" type="text" spellcheck="false" readonly tabindex="-1" />
+        <span id="target" class="chip">To: Ink Brain (auto)</span>
+        <span id="mic" class="icon-button on"></span>
+        <span id="stay" class="icon-button"></span>
+    </form>
+    <div id="hint" class="hidden">Drag to circle &middot; click to point &middot; speak or type &middot; Enter to send &middot; Esc to close</div>
+
+    <div id="captions" class="hidden">
+        <div class="caption-steps"></div>
+        <p class="caption-text"></p>
+    </div>
+
+    <div id="toasts"></div>
+</body>
+</html>

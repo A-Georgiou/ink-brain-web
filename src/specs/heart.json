@@ -1,0 +1,693 @@
+{
+ "title": "How the heart pumps blood",
+ "scene": {
+  "camera": {
+   "position": [
+    0,
+    2,
+    30
+   ],
+   "target": [
+    0,
+    0,
+    0
+   ]
+  },
+  "objects": [
+   {
+    "id": "wall",
+    "type": "sphere",
+    "radius": 5.5,
+    "scale": [
+     1.1,
+     1.25,
+     0.85
+    ],
+    "position": [
+     0,
+     -0.5,
+     0
+    ],
+    "color": "#c8553d",
+    "material": "matte",
+    "opacity": 0.22,
+    "label": "Heart muscle (myocardium)"
+   },
+   {
+    "id": "ra",
+    "type": "sphere",
+    "radius": 2.1,
+    "position": [
+     -3.2,
+     2.2,
+     0.3
+    ],
+    "color": "#4a6fd8",
+    "label": "Right atrium"
+   },
+   {
+    "id": "rv",
+    "type": "sphere",
+    "radius": 2.6,
+    "scale": [
+     1,
+     1.4,
+     0.8
+    ],
+    "position": [
+     -1.9,
+     -2.3,
+     0.8
+    ],
+    "color": "#3557c4",
+    "label": "Right ventricle"
+   },
+   {
+    "id": "la",
+    "type": "sphere",
+    "radius": 2,
+    "position": [
+     2.9,
+     2.6,
+     -1
+    ],
+    "color": "#e04848",
+    "label": "Left atrium"
+   },
+   {
+    "id": "lv",
+    "type": "sphere",
+    "radius": 2.9,
+    "scale": [
+     1,
+     1.55,
+     0.9
+    ],
+    "position": [
+     1.7,
+     -2.5,
+     -0.4
+    ],
+    "color": "#c62828",
+    "label": "Left ventricle (thickest wall)"
+   },
+   {
+    "id": "septum",
+    "type": "box",
+    "size": [
+     0.5,
+     8,
+     3
+    ],
+    "position": [
+     -0.1,
+     -1.5,
+     0.2
+    ],
+    "rotation": [
+     0,
+     0,
+     -12
+    ],
+    "color": "#a33a2a",
+    "label": "Septum"
+   },
+   {
+    "id": "svc",
+    "type": "path",
+    "points": [
+     [
+      -3.4,
+      10,
+      0
+     ],
+     [
+      -3.3,
+      6,
+      0.2
+     ],
+     [
+      -3.2,
+      3.8,
+      0.3
+     ]
+    ],
+    "radii": [
+     0.9,
+     0.9,
+     0.9
+    ],
+    "color": "#4a6fd8",
+    "label": "Superior vena cava"
+   },
+   {
+    "id": "ivc",
+    "type": "path",
+    "points": [
+     [
+      -3.3,
+      -9,
+      -0.5
+     ],
+     [
+      -3.4,
+      -3,
+      0
+     ],
+     [
+      -3.3,
+      0.5,
+      0.3
+     ]
+    ],
+    "radii": [
+     1,
+     1,
+     1
+    ],
+    "color": "#4a6fd8",
+    "label": "Inferior vena cava"
+   },
+   {
+    "id": "pa",
+    "type": "path",
+    "points": [
+     [
+      -1.2,
+      0.5,
+      1.8
+     ],
+     [
+      -0.6,
+      5,
+      2
+     ],
+     [
+      -1.5,
+      7.5,
+      1.5
+     ],
+     [
+      -8,
+      7,
+      0
+     ]
+    ],
+    "radii": [
+     1,
+     1,
+     1,
+     0.8
+    ],
+    "color": "#5b7fe0",
+    "label": "Pulmonary artery"
+   },
+   {
+    "id": "pa2",
+    "type": "path",
+    "points": [
+     [
+      -1.5,
+      7.5,
+      1.5
+     ],
+     [
+      8,
+      7,
+      -0.5
+     ]
+    ],
+    "radii": [
+     0.8,
+     0.8
+    ],
+    "color": "#5b7fe0"
+   },
+   {
+    "id": "pv",
+    "type": "path",
+    "points": [
+     [
+      8,
+      4,
+      -1.5
+     ],
+     [
+      4.5,
+      2.8,
+      -1
+     ]
+    ],
+    "radii": [
+     0.6,
+     0.6
+    ],
+    "color": "#e05a5a",
+    "label": "Pulmonary veins"
+   },
+   {
+    "id": "pv2",
+    "type": "path",
+    "points": [
+     [
+      -8,
+      4,
+      -1.5
+     ],
+     [
+      1.2,
+      2.8,
+      -1.2
+     ]
+    ],
+    "radii": [
+     0.6,
+     0.6
+    ],
+    "color": "#e05a5a"
+   },
+   {
+    "id": "aorta",
+    "type": "path",
+    "points": [
+     [
+      1,
+      0.5,
+      0
+     ],
+     [
+      0.4,
+      6,
+      0
+     ],
+     [
+      1.8,
+      9,
+      -0.5
+     ],
+     [
+      4,
+      8,
+      -1
+     ],
+     [
+      4.6,
+      2,
+      -2.5
+     ],
+     [
+      4.4,
+      -9,
+      -2.5
+     ]
+    ],
+    "radii": [
+     1.2,
+     1.2,
+     1.2,
+     1.1,
+     1.1,
+     1.1
+    ],
+    "color": "#d32f2f",
+    "label": "Aorta"
+   },
+   {
+    "id": "tri",
+    "type": "torus",
+    "radius": 0.9,
+    "tube": 0.18,
+    "position": [
+     -2.7,
+     0,
+     0.5
+    ],
+    "rotation": [
+     90,
+     0,
+     0
+    ],
+    "color": "#f5e0c0",
+    "label": "Tricuspid valve"
+   },
+   {
+    "id": "pulv",
+    "type": "torus",
+    "radius": 0.8,
+    "tube": 0.16,
+    "position": [
+     -1.1,
+     1,
+     1.8
+    ],
+    "rotation": [
+     90,
+     0,
+     0
+    ],
+    "color": "#f5e0c0",
+    "label": "Pulmonary valve"
+   },
+   {
+    "id": "mit",
+    "type": "torus",
+    "radius": 0.9,
+    "tube": 0.18,
+    "position": [
+     2.4,
+     0.4,
+     -0.8
+    ],
+    "rotation": [
+     90,
+     0,
+     0
+    ],
+    "color": "#f5e0c0",
+    "label": "Mitral valve"
+   },
+   {
+    "id": "aov",
+    "type": "torus",
+    "radius": 0.9,
+    "tube": 0.18,
+    "position": [
+     0.9,
+     1,
+     0
+    ],
+    "rotation": [
+     90,
+     0,
+     0
+    ],
+    "color": "#f5e0c0",
+    "label": "Aortic valve"
+   },
+   {
+    "id": "lungR",
+    "type": "sphere",
+    "radius": 3,
+    "scale": [
+     0.8,
+     1.4,
+     0.7
+    ],
+    "position": [
+     -10,
+     5,
+     -1
+    ],
+    "color": "#f2a7b0",
+    "opacity": 0.5,
+    "label": "Lung"
+   },
+   {
+    "id": "lungL",
+    "type": "sphere",
+    "radius": 3,
+    "scale": [
+     0.8,
+     1.4,
+     0.7
+    ],
+    "position": [
+     10,
+     5,
+     -1
+    ],
+    "color": "#f2a7b0",
+    "opacity": 0.5,
+    "label": "Lung"
+   },
+   {
+    "id": "sa",
+    "type": "sphere",
+    "radius": 0.4,
+    "position": [
+     -3.6,
+     3.6,
+     1.5
+    ],
+    "color": "#ffe14d",
+    "glow": true,
+    "label": "Pacemaker (SA node)"
+   }
+  ]
+ },
+ "steps": [
+  {
+   "say": "This is the heart from the front, like in your picture, so its right side is on your left. Blue blood that has used up its oxygen comes back from the body through the two big veins and fills the right atrium.",
+   "scene": [
+    {
+     "do": "flow",
+     "from": [
+      -3.4,
+      10,
+      0
+     ],
+     "to": "ra",
+     "color": "#5b7fe0",
+     "id": "f1"
+    },
+    {
+     "do": "flow",
+     "from": [
+      -3.3,
+      -9,
+      0
+     ],
+     "to": "ra",
+     "color": "#5b7fe0",
+     "id": "f2"
+    },
+    {
+     "do": "highlight",
+     "target": "ra"
+    }
+   ]
+  },
+  {
+   "say": "The pacemaker sends out an electrical spark, so the atrium squeezes. That pushes blood through the tricuspid valve into the right ventricle.",
+   "scene": [
+    {
+     "do": "highlight",
+     "target": "sa"
+    },
+    {
+     "do": "scale",
+     "target": "ra",
+     "value": 0.85
+    },
+    {
+     "do": "flow",
+     "from": "ra",
+     "to": "rv",
+     "via": [
+      [
+       -2.7,
+       0,
+       0.5
+      ]
+     ],
+     "color": "#5b7fe0",
+     "id": "f3"
+    },
+    {
+     "do": "highlight",
+     "target": "tri"
+    }
+   ]
+  },
+  {
+   "say": "Next, the right ventricle contracts. The blood goes through the pulmonary valve and up to the lungs, where it drops off carbon dioxide and picks up oxygen.",
+   "scene": [
+    {
+     "do": "hide",
+     "target": "f1"
+    },
+    {
+     "do": "hide",
+     "target": "f2"
+    },
+    {
+     "do": "scale",
+     "target": "rv",
+     "value": 0.85
+    },
+    {
+     "do": "flow",
+     "from": "rv",
+     "to": "lungR",
+     "via": [
+      [
+       -1.1,
+       1,
+       1.8
+      ],
+      [
+       -0.6,
+       5,
+       2
+      ],
+      [
+       -1.5,
+       7.5,
+       1.5
+      ]
+     ],
+     "color": "#5b7fe0",
+     "id": "f4"
+    },
+    {
+     "do": "flow",
+     "from": "rv",
+     "to": "lungL",
+     "via": [
+      [
+       -0.6,
+       5,
+       2
+      ],
+      [
+       -1.5,
+       7.5,
+       1.5
+      ]
+     ],
+     "color": "#5b7fe0",
+     "id": "f5"
+    }
+   ]
+  },
+  {
+   "say": "Bright red blood, now full of oxygen, comes back through the pulmonary veins into the left atrium. It then drops through the mitral valve into the left ventricle.",
+   "scene": [
+    {
+     "do": "hide",
+     "target": "f3"
+    },
+    {
+     "do": "hide",
+     "target": "f4"
+    },
+    {
+     "do": "hide",
+     "target": "f5"
+    },
+    {
+     "do": "flow",
+     "from": "lungL",
+     "to": "la",
+     "color": "#ff5252",
+     "id": "f6"
+    },
+    {
+     "do": "flow",
+     "from": "la",
+     "to": "lv",
+     "via": [
+      [
+       2.4,
+       0.4,
+       -0.8
+      ]
+     ],
+     "color": "#ff5252",
+     "id": "f7"
+    },
+    {
+     "do": "highlight",
+     "target": "mit"
+    }
+   ]
+  },
+  {
+   "say": "The left ventricle has the thickest wall, so it gives the strongest squeeze. It forces blood through the aortic valve, up the aorta and out to the whole body.",
+   "scene": [
+    {
+     "do": "hide",
+     "target": "f6"
+    },
+    {
+     "do": "scale",
+     "target": "lv",
+     "value": 0.85
+    },
+    {
+     "do": "flow",
+     "from": "lv",
+     "to": [
+      4.4,
+      -9,
+      -2.5
+     ],
+     "via": [
+      [
+       0.9,
+       1,
+       0
+      ],
+      [
+       0.4,
+       6,
+       0
+      ],
+      [
+       1.8,
+       9,
+       -0.5
+      ],
+      [
+       4,
+       8,
+       -1
+      ],
+      [
+       4.6,
+       2,
+       -2.5
+      ]
+     ],
+     "color": "#ff5252",
+     "id": "f8"
+    },
+    {
+     "do": "highlight",
+     "target": "aorta"
+    }
+   ]
+  },
+  {
+   "say": "Both sides do this at the same moment, about 70 times a minute. The atria squeeze first, then the ventricles, and the valves snap shut behind the blood so it only ever moves forward. That snapping is the lub-dub you hear.",
+   "scene": [
+    {
+     "do": "scale",
+     "target": "ra",
+     "value": 1
+    },
+    {
+     "do": "scale",
+     "target": "rv",
+     "value": 1
+    },
+    {
+     "do": "scale",
+     "target": "lv",
+     "value": 1
+    },
+    {
+     "do": "flow",
+     "from": "ra",
+     "to": "rv",
+     "color": "#5b7fe0",
+     "id": "f9"
+    },
+    {
+     "do": "highlight",
+     "target": "wall"
+    }
+   ]
+  }
+ ]
+}

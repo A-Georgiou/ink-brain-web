@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Ink Brain · Circle anything. Ask. See it explained.</title>
+    <meta name="description" content="Ink Brain is an always-on companion for your Mac, built on GitHub Copilot. Circle anything on your screen, ask out loud, and watch it explain with sketches, motion graphics and 3D models. Free and open source." />
+    <meta name="theme-color" content="#05070c" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://inkbrain.app/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://api.github.com" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ink Brain" />
+    <meta property="og:title" content="Ink Brain · Circle anything. Ask. See it explained." />
+    <meta property="og:description" content="An always-on companion for your Mac, built on GitHub Copilot. It sees what you point at, answers out loud and draws the explanation right on your screen." />
+    <meta property="og:url" content="https://inkbrain.app/" />
+    <meta property="og:image" content="https://inkbrain.app/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Ink Brain logo, an ink drop, above the words Ink Brain circled in glowing pink ink." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://inkbrain.app/og.jpg" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Ink Brain",
+            "operatingSystem": "macOS 14 or later",
+            "applicationCategory": "EducationalApplication",
+            "description": "An always-on companion for your Mac, built on GitHub Copilot. Circle anything on your screen, ask, and see it explained with sketches, motion graphics and 3D models.",
+            "url": "https://inkbrain.app/",
+            "downloadUrl": "https://inkbrain.app/#download",
+            "license": "https://opensource.org/licenses/MIT",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "author": { "@type": "Person", "name": "Andrew Georgiou" },
+            "codeRepository": "https://github.com/A-Georgiou/ink-brain"
+        }
+    </script>
+    <script>
+        document.documentElement.classList.add("js");
+        setTimeout(function () {
+            if (!window.__inkReady) document.documentElement.classList.remove("js");
+        }, 4000);
+    </script>
+    <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+    <svg width="0" height="0" class="defs" aria-hidden="true" focusable="false">
+        <defs>
+            <linearGradient id="g-ink" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#c9a6ff" />
+                <stop offset="0.5" stop-color="#a371f7" />
+                <stop offset="1" stop-color="#58a6ff" />
+            </linearGradient>
+            <linearGradient id="g-drop" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#a371f7" />
+                <stop offset="0.55" stop-color="#58a6ff" />
+                <stop offset="1" stop-color="#3fb950" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <div class="backdrop" aria-hidden="true">
+        <canvas class="aurora"></canvas>
+        <div class="dots"></div>
+        <div class="grain"></div>
+    </div>
+
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="nav" data-nav>
+        <div class="nav-inner">
+            <a class="brand" href="#top" aria-label="Ink Brain home">
+                <span class="drop" aria-hidden="true"><i></i></span>
+                <span class="brand-name">Ink Brain</span>
+            </a>
+            <nav class="nav-links" aria-label="Main">
+                <a href="#how">How it works</a>
+                <a href="#explain">Explanations</a>
+                <a href="#film">Film</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <div class="nav-actions">
+                <a class="icon-link" href="https://github.com/A-Georgiou/ink-brain" aria-label="Ink Brain on GitHub">
+                    <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" /></svg>
+                </a>
+                <a class="btn btn-small btn-primary" href="#download" data-download>Download</a>
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-menu-toggle><span></span><span></span></button>
+            </div>
+        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" hidden>
+            <a href="#how">How it works</a>
+            <a href="#explain">Explanations</a>
+            <a href="#film">Film</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://github.com/A-Georgiou/ink-brain">GitHub</a>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero" id="top">
+            <div class="hero-copy">
+                <a class="pill" href="https://github.com/A-Georgiou/ink-brain" data-hero-in>
+                    <span class="pill-dot" aria-hidden="true"></span>
+                    <span>Open source · Built on the GitHub Copilot SDK</span>
+                    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </a>
+                <h1 class="hero-title">
+                    <span class="line"><span class="word">Circle</span> <span class="word circled" data-circle>anything.</span></span>
+                    <span class="line"><span class="word">Ask.</span> <span class="word gradient-text">See it explained.</span></span>
+                </h1>
+                <p class="hero-lead">An always-on companion for your Mac, built on GitHub Copilot. It sees what you point at, answers out loud and draws the explanation right on your screen.</p>
+                <div class="hero-actions" data-hero-in>
+                    <a class="btn btn-primary btn-large" href="#download" data-download>
+                        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 3v9.5M5.5 8.5 10 13l4.5-4.5M4 16.5h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                        <span data-download-label>Download for Mac</span>
+                    </a>
+                    <a class="btn btn-ghost btn-large" href="#film" data-play-film>
+                        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M7 4.8v10.4a.6.6 0 0 0 .9.5l8-5.2a.6.6 0 0 0 0-1L7.9 4.3a.6.6 0 0 0-.9.5Z" fill="currentColor" /></svg>
+                        Watch the film <span class="btn-meta">4:31</span>
+                    </a>
+                </div>
+                <p class="hero-meta" data-hero-in><span>Free and open source</span> <i aria-hidden="true">·</i> <span>macOS 14 or later</span> <i aria-hidden="true">·</i> <span>Apple silicon and Intel</span></p>
+            </div>
+
+            <div class="stage" data-stage data-hero-in>
+                <div class="stage-glow" aria-hidden="true"></div>
+                <div class="stage-window">
+                    <div class="stage-bar">
+                        <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="stage-url"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4.5 7V5.5a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>arxiv.org/pdf/1810.04805</span>
+                        <span class="stage-live" data-stage-status><i aria-hidden="true"></i><span>Live replay</span></span>
+                    </div>
+                    <div class="stage-screen" data-stage-screen>
+                        <iframe title="Ink Brain circling the BERT figure in a research paper and explaining it step by step" data-src="/embed/overlay.html" tabindex="-1"></iframe>
+                        <button class="stage-start" type="button" data-stage-start hidden>
+                            <span>Replay</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="stage-dock">
+                    <p class="stage-caption" data-stage-caption></p>
+                    <div class="stage-controls">
+                        <button class="chip-btn chip-try" type="button" data-try aria-pressed="false">
+                            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3.5 16.5 5 11.6 14.6 2a1.8 1.8 0 0 1 2.5 0l.9.9a1.8 1.8 0 0 1 0 2.5L8.4 15z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /></svg>
+                            <span data-try-label>Try the pen</span>
+                            <span class="keys" aria-hidden="true"><kbd>⌥</kbd><kbd>⇧</kbd><kbd>Space</kbd></span>
+                        </button>
+                        <button class="chip-btn" type="button" data-sound aria-pressed="false">
+                            <svg class="i-on" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="M13.5 7a4 4 0 0 1 0 6M15.6 5a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+                            <svg class="i-off" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+                            <span data-sound-label>Sound off</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section how" id="how" aria-labelledby="how-title">
+            <div class="section-head" data-reveal>
+                <p class="eyebrow">How it works</p>
+                <h2 id="how-title">Three steps, right on your screen</h2>
+                <p class="lead">Press one shortcut and Ink Brain is there, over whatever you are reading, watching or building.</p>
+            </div>
+            <ol class="steps">
+                <li class="step card" data-reveal style="--delay: 0s">
+                    <span class="step-num">1</span>
+                    <div class="step-art" aria-hidden="true">
+                        <svg viewBox="0 0 440 200" class="art-page">
+                            <rect x="112" y="6" width="216" height="172" rx="12" fill="#eef1f5" />
+                            <g fill="#c3c9d2"><rect x="132" y="26" width="150" height="6" rx="3" /><rect x="132" y="40" width="176" height="6" rx="3" /><rect x="132" y="54" width="120" height="6" rx="3" /><rect x="132" y="132" width="176" height="6" rx="3" /><rect x="132" y="146" width="160" height="6" rx="3" /><rect x="132" y="160" width="110" height="6" rx="3" /></g>
+                            <rect x="150" y="72" width="140" height="46" rx="8" fill="#c9dcff" stroke="#7aa7f5" stroke-width="2" />
+                            <g fill="#f7d27a"><rect x="166" y="84" width="20" height="22" rx="4" /><rect x="196" y="84" width="20" height="22" rx="4" /><rect x="226" y="84" width="20" height="22" rx="4" /><rect x="256" y="84" width="20" height="22" rx="4" /></g>
+                            <path class="ink-under loop" d="M190,52 C238,44 312,50 326,82 C340,114 280,140 214,140 C150,140 108,122 112,94 C116,66 168,48 236,50" pathLength="1" />
+                            <path class="ink loop" d="M190,52 C238,44 312,50 326,82 C340,114 280,140 214,140 C150,140 108,122 112,94 C116,66 168,48 236,50" pathLength="1" />
+                        </svg>
+                    </div>
+                    <h3>Circle anything</h3>
+                    <p>Press <span class="keys"><kbd>⌥</kbd><kbd>⇧</kbd><kbd>Space</kbd></span>, then circle, underline or click a figure, an equation or a photo.</p>
+                </li>
+                <li class="step card" data-reveal style="--delay: 0.12s">
+                    <span class="step-num">2</span>
+                    <div class="step-art" aria-hidden="true">
+                        <div class="art-composer">
+                            <span class="orb"></span>
+                            <span class="art-typed" data-typed="how does this work?"></span><span class="caret"></span>
+                            <span class="bars"><i></i><i></i><i></i><i></i><i></i></span>
+                        </div>
+                    </div>
+                    <h3>Ask your question</h3>
+                    <p>Speak or type, in your own words. Keep talking for follow-ups, or go hands-free and start with “Ink Brain”.</p>
+                </li>
+                <li class="step card" data-reveal style="--delay: 0.24s">
+                    <span class="step-num">3</span>
+                    <div class="step-art" aria-hidden="true">
+                        <div class="art-tiles">
+                            <figure>
+                                <svg viewBox="0 0 132 150"><path class="draw-on" d="M24 120 C 44 62, 84 52, 106 40 M 90 36 L 107 39 L 98 54" fill="none" stroke="#ff3ec9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" /></svg>
+                                <figcaption>Sketch</figcaption>
+                            </figure>
+                            <figure>
+                                <svg viewBox="0 0 132 150"><path d="M16 124 H 120 M 20 128 V 22" stroke="rgba(240,246,252,.35)" stroke-width="2" fill="none" /><path class="draw-on curve" d="M22 112 C 44 110, 54 52, 66 52 S 88 92, 108 32" fill="none" stroke="#58a6ff" stroke-width="4" stroke-linecap="round" pathLength="1" /><circle class="tracer" r="6" fill="#f2cc60" /></svg>
+                                <figcaption>Board</figcaption>
+                            </figure>
+                            <figure>
+                                <div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                <figcaption>3D</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <h3>See it explained</h3>
+                    <p>It talks you through it with sketches, motion graphics and 3D models, built up step by step on your screen.</p>
+                </li>
+            </ol>
+            <p class="flow-strip mono" data-reveal>
+                <span>Your screen and your marks</span><b aria-hidden="true">→</b><strong>a GitHub Copilot session</strong><b aria-hidden="true">→</b><span>live tools draw on a transparent overlay</span>
+            </p>
+        </section>
+        <section class="section explain" id="explain" aria-labelledby="explain-title">
+            <div class="section-head" data-reveal>
+                <p class="eyebrow">See it explained</p>
+                <h2 id="explain-title">The right picture for every question</h2>
+                <p class="lead">Ink Brain decides how to teach. It sketches on the page for diagrams, builds motion graphics for maths and dense text, and models physical things in 3D, narrating each step as it draws.</p>
+            </div>
+
+            <ul class="modes">
+                <li class="mode card" data-reveal style="--delay: 0s">
+                    <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><path d="M7 31c5-14 14-19 25-22M24 6.5l8.2 2.6-3.6 7.6" fill="none" stroke="url(#g-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    <div><h3>Sketches on the page</h3><p>Numbered notes, arrows and highlights drawn onto the figure you circled, one idea at a time.</p></div>
+                </li>
+                <li class="mode card" data-reveal style="--delay: 0.08s">
+                    <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><path d="M6 33V6M6 33h28" fill="none" stroke="url(#g-ink)" stroke-width="2.4" stroke-linecap="round" /><path d="M9 28c6-1 8-16 13-16s6 11 12-6" fill="none" stroke="url(#g-ink)" stroke-width="2.6" stroke-linecap="round" /></svg>
+                    <div><h3>Motion graphics</h3><p>Boards where equations rearrange themselves and graphs animate their variables, with real numbers.</p></div>
+                </li>
+                <li class="mode card" data-reveal style="--delay: 0.16s">
+                    <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><path d="M20 4 34 12v16l-14 8-14-8V12zM20 20l14-8M20 20v16M20 20 6 12" fill="none" stroke="url(#g-ink)" stroke-width="2.4" stroke-linejoin="round" /></svg>
+                    <div><h3>3D models</h3><p>Models you can turn around, with parts that move on their real hinges, come apart or are cut away.</p></div>
+                </li>
+            </ul>
+
+            <article class="showcase" aria-labelledby="board-title">
+                <div class="showcase-copy" data-reveal>
+                    <p class="eyebrow">Motion graphics</p>
+                    <h3 id="board-title">Maths that moves</h3>
+                    <p>Circle a dense definition and Ink Brain works through it on a board in the style of 3Blue1Brown, with small concrete numbers, narrated step by step.</p>
+                    <ul class="ticks">
+                        <li>Typeset with KaTeX and checked before anything shows</li>
+                        <li>Equations morph from one form into the next</li>
+                        <li>Graphs follow the variables as they change</li>
+                    </ul>
+                </div>
+                <figure class="panel" data-panel="pack" data-reveal>
+                    <div class="panel-bar">
+                        <span class="panel-kind">Explainer</span>
+                        <span class="panel-title" data-panel-title>What a Pack recipe means</span>
+                        <span class="panel-live" title="Rendered live in your browser"><i aria-hidden="true"></i>Live</span>
+                    </div>
+                    <div class="panel-body board-body" data-panel-body>
+                        <iframe data-src="/embed/sandbox.html" title="An animated maths board explaining what a Pack recipe means" tabindex="-1"></iframe>
+                        <div class="panel-captions" data-panel-captions hidden><div class="caption-steps"></div><p class="caption-text"></p></div>
+                        <button class="panel-replay" type="button" data-panel-replay hidden>
+                            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4M4.5 3.5v3.2h3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                            Replay
+                        </button>
+                    </div>
+                    <figcaption class="panel-foot">
+                        <span>From the film: a definition circled on OpenReview</span>
+                        <button class="chip-btn chip-small" type="button" data-sound aria-pressed="false"><svg class="i-on" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="M13.5 7a4 4 0 0 1 0 6M15.6 5a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><svg class="i-off" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span data-sound-label>Sound off</span></button>
+                    </figcaption>
+                </figure>
+            </article>
+
+            <article class="showcase showcase-flip" aria-labelledby="model-title">
+                <div class="showcase-copy" data-reveal>
+                    <p class="eyebrow">3D models</p>
+                    <h3 id="model-title">Turn it around. Take it apart.</h3>
+                    <p>Physical things become models built from the picture on your screen, wired up or set in motion one step at a time. Drag a model to look around it.</p>
+                    <div class="scene-tabs" role="tablist" aria-label="3D examples" data-scene-tabs>
+                        <button type="button" role="tab" aria-selected="true" data-scene="led">LED on GPIO 2</button>
+                        <button type="button" role="tab" aria-selected="false" data-scene="heart">How the heart pumps blood</button>
+                        <button type="button" role="tab" aria-selected="false" data-scene="stepper">Stepper motor wiring</button>
+                    </div>
+                </div>
+                <figure class="panel" data-panel="led" data-reveal>
+                    <div class="panel-bar">
+                        <span class="panel-kind">Explainer</span>
+                        <span class="panel-title" data-panel-title>LED on GPIO 2</span>
+                        <span class="panel-live" title="Rendered live in your browser"><i aria-hidden="true"></i>Live</span>
+                    </div>
+                    <div class="panel-body scene-body" data-panel-body>
+                        <iframe data-src="/embed/sandbox.html" title="An interactive 3D model, explained step by step" tabindex="-1"></iframe>
+                        <div class="panel-captions" data-panel-captions hidden><div class="caption-steps"></div><p class="caption-text"></p></div>
+                        <button class="touch-shield" type="button" data-touch-shield aria-label="Interact with the 3D model"></button>
+                        <span class="drag-hint" aria-hidden="true"><svg viewBox="0 0 20 20" width="16" height="16"><path d="M4 10a6 3 0 1 0 12 0 6 3 0 1 0-12 0M14.5 6.8l1.7.8-.6 1.9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="hint-mouse">Drag to turn</span><span class="hint-touch">Tap, then drag to turn</span></span>
+                        <button class="panel-replay" type="button" data-panel-replay hidden>
+                            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4M4.5 3.5v3.2h3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                            Replay
+                        </button>
+                    </div>
+                    <figcaption class="panel-foot">
+                        <span data-panel-source>From the film: a pinout circled in image search</span>
+                        <button class="chip-btn chip-small" type="button" data-sound aria-pressed="false"><svg class="i-on" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="M13.5 7a4 4 0 0 1 0 6M15.6 5a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><svg class="i-off" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span data-sound-label>Sound off</span></button>
+                    </figcaption>
+                </figure>
+            </article>
+
+            <p class="engine-note" data-reveal>
+                <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 2.5 3.5 5v4.6c0 4 2.8 6.9 6.5 7.9 3.7-1 6.5-3.9 6.5-7.9V5z" fill="none" stroke="url(#g-ink)" stroke-width="1.7" stroke-linejoin="round" /><path d="m7 10 2 2 4-4.2" fill="none" stroke="url(#g-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span>None of these are videos. Each one is Ink Brain's own rendering engine, running in your browser, replaying the exact output the model wrote.</span>
+            </p>
+        </section>
+
+        <section class="section film" id="film" aria-labelledby="film-title">
+            <div class="section-head" data-reveal>
+                <p class="eyebrow">The film</p>
+                <h2 id="film-title">Four minutes, three real questions</h2>
+                <p class="lead">A research figure, a dense definition and a confusing pinout, each circled, asked about out loud and explained on a real screen.</p>
+            </div>
+            <div class="film-frame" data-reveal>
+                <div class="film-player">
+                    <video data-film preload="none" playsinline controls aria-label="Ink Brain demo film">
+                        <source src="/media/film.mp4" type="video/mp4" />
+                    </video>
+                    <button class="film-cover" type="button" data-film-cover aria-label="Play the film">
+                        <picture>
+                            <source type="image/avif" srcset="/media/film-poster.avif" />
+                            <source type="image/webp" srcset="/media/film-poster.webp" />
+                            <img src="/media/film-poster.jpg" width="1600" height="900" alt="" loading="lazy" decoding="async" />
+                        </picture>
+                        <span class="film-cta" aria-hidden="true">
+                            <span class="film-play"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M8 5.6v12.8a.8.8 0 0 0 1.2.7l10-6.4a.8.8 0 0 0 0-1.4l-10-6.4a.8.8 0 0 0-1.2.7Z" fill="currentColor" /></svg></span>
+                            <span class="film-label">Watch the film</span>
+                            <span class="film-length">4:31</span>
+                        </span>
+                    </button>
+                </div>
+                <ol class="chapters" aria-label="Chapters">
+                    <li><button type="button" data-chapter="0"><span class="ch-num">00</span><span class="ch-title">Meet Ink Brain</span><span class="ch-time">0:00</span></button></li>
+                    <li><button type="button" data-chapter="14"><span class="ch-num">01</span><span class="ch-title">Make sense of any diagram</span><span class="ch-time">0:14</span></button></li>
+                    <li><button type="button" data-chapter="103.9"><span class="ch-num">02</span><span class="ch-title">Break down the maths</span><span class="ch-time">1:44</span></button></li>
+                    <li><button type="button" data-chapter="191"><span class="ch-num">03</span><span class="ch-title">Show me in 3D</span><span class="ch-time">3:11</span></button></li>
+                    <li><button type="button" data-chapter="260.4"><span class="ch-num">04</span><span class="ch-title">Under the hood</span><span class="ch-time">4:20</span></button></li>
+                </ol>
+            </div>
+        </section>
+        <section class="section features" id="features" aria-labelledby="features-title">
+            <div class="section-head" data-reveal>
+                <p class="eyebrow">More than an answer</p>
+                <h2 id="features-title">A companion that lives on your screen</h2>
+                <p class="lead">Ink Brain listens, reads, remembers and shows you how, without ever leaving the thing you are looking at.</p>
+            </div>
+            <div class="bento">
+                <article class="tile tile-voice card" data-reveal style="--delay: 0s">
+                    <div class="tile-art voice-art" aria-hidden="true"><canvas class="wave" data-wave width="560" height="120"></canvas></div>
+                    <div class="tile-copy">
+                        <h3>Hear the answer</h3>
+                        <p>Replies are spoken in an on-device neural voice, and the mic stays open for about 12 seconds so follow-ups just work.</p>
+                        <button class="chip-btn" type="button" data-voice-sample aria-pressed="false">
+                            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M6.5 4.6v10.8a.6.6 0 0 0 .9.5l8.4-5.4a.6.6 0 0 0 0-1L7.4 4.1a.6.6 0 0 0-.9.5Z" fill="currentColor" /></svg>
+                            <span data-voice-sample-label>Play a sample</span>
+                        </button>
+                    </div>
+                </article>
+                <article class="tile card" data-reveal style="--delay: 0.06s">
+                    <div class="tile-art source-art" aria-hidden="true">
+                        <div class="mini-page"><i></i><i></i><i></i><i></i><i></i><i></i><span class="scan"></span></div>
+                        <span class="source-chip"><b></b>Reading arxiv.org</span>
+                    </div>
+                    <div class="tile-copy">
+                        <h3>Read the source</h3>
+                        <p>It reads the article, thread or docs behind what you circled, rather than answering from memory.</p>
+                    </div>
+                </article>
+                <article class="tile card" data-reveal style="--delay: 0s">
+                    <div class="tile-art life-art" aria-hidden="true">
+                        <div class="compare"><span class="flat"></span><span class="live"></span><span class="handle"></span></div>
+                    </div>
+                    <div class="tile-copy">
+                        <h3>Bring images to life</h3>
+                        <p>Pull an image out of the screen, re-render it, or lay a live 3D or animated version over the original.</p>
+                    </div>
+                </article>
+                <article class="tile card" data-reveal style="--delay: 0.06s">
+                    <div class="tile-art memory-art" aria-hidden="true">
+                        <span>Project: attention paper</span><span>Board: ESP32 DevKit V1</span><span>Prefers British English</span>
+                    </div>
+                    <div class="tile-copy">
+                        <h3>Remember you</h3>
+                        <p>Your projects, devices, preferences and past conversations stay on your Mac, and you can turn any of it off.</p>
+                    </div>
+                </article>
+                <article class="tile card" data-reveal style="--delay: 0.12s">
+                    <div class="tile-art control-art" aria-hidden="true">
+                        <span class="approve">Allow once</span>
+                        <svg class="cursor" viewBox="0 0 28 28" width="24" height="24"><path d="M4 3 L24 13 L14.6 15.6 L10 25 Z" fill="#a371f7" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" /></svg>
+                        <span class="ripple"></span>
+                    </div>
+                    <div class="tile-copy">
+                        <h3>Show you how</h3>
+                        <p>With your approval, it moves the mouse and types to demonstrate a step, and stops the moment you move the mouse.</p>
+                    </div>
+                </article>
+                <article class="tile card" data-reveal style="--delay: 0s">
+                    <div class="tile-art wake-art" aria-hidden="true">
+                        <span class="orb"></span><span class="said">“Ink Brain, what is this part?”</span>
+                    </div>
+                    <div class="tile-copy">
+                        <h3>Talk hands-free</h3>
+                        <p>Turn on Talk hands-free in the menu bar and start any question with “Ink Brain”.</p>
+                    </div>
+                </article>
+                <article class="tile tile-wide card" data-reveal style="--delay: 0.06s">
+                    <div class="tile-art hear-art" aria-hidden="true">
+                        <div class="video"><span class="play"></span><span class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+                        <div class="transcript"><i></i><i></i><i></i></div>
+                    </div>
+                    <div class="tile-copy">
+                        <h3>Hear my screen</h3>
+                        <p>Ask about a video or a call playing on your Mac. Ink Brain transcribes it on-device, so it knows what was just said.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section copilot" id="copilot" aria-labelledby="copilot-title">
+            <div class="split">
+                <div class="split-copy" data-reveal>
+                    <p class="eyebrow">Works with Copilot</p>
+                    <h2 id="copilot-title">Your Copilot sessions can draw on your screen too</h2>
+                    <p class="lead">Install the extension and every new Copilot CLI or Copilot app session gets Ink Brain's tools, so it can explain, sketch and speak right where you are working.</p>
+                    <ul class="ticks">
+                        <li>Send a question from the overlay to a session you already have open with the <b>To:</b> chip</li>
+                        <li>A session must be allowed once before it can see your screen</li>
+                        <li>Taking control of your Mac always needs its own approval</li>
+                    </ul>
+                </div>
+                <div class="terminal card" data-reveal data-terminal style="--delay: 0.1s">
+                    <div class="terminal-bar"><span class="lights" aria-hidden="true"><i></i><i></i><i></i></span><span>Terminal</span></div>
+                    <pre class="terminal-body mono" aria-label="Terminal session installing the Ink Brain extension and using it from Copilot CLI"><code><span class="t-line" data-t="0"><span class="t-dir">~/ink-brain</span> <span class="t-prompt">$</span> <span class="t-cmd" data-type>npm run extension:install</span></span>
+<span class="t-line t-out" data-t="1">Installed ~/.copilot/extensions/ink-brain</span>
+<span class="t-line t-out t-dim" data-t="2">New Copilot CLI and desktop app sessions load it automatically; run /clear (or restart) in sessions that are already open.</span>
+<span class="t-line" data-t="3"><span class="t-dir">~/my-project</span> <span class="t-prompt">$</span> <span class="t-cmd" data-type>copilot</span></span>
+<span class="t-line t-ask" data-t="4"><span class="t-prompt">❯</span> <span data-type>Walk me through this retry loop on my screen</span></span>
+<span class="t-line t-tool" data-t="5"><span class="t-dot ok">●</span> live_look <span class="t-dim">Looked at your screen</span></span>
+<span class="t-line t-tool" data-t="6"><span class="t-dot ok">●</span> live_explain <span class="t-dim">“How the retries back off” · 4 steps</span></span>
+<span class="t-line t-tool" data-t="7"><span class="t-dot ok">●</span> live_speak <span class="t-dim">Narrating on your Mac</span></span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="section privacy" id="privacy" aria-labelledby="privacy-title">
+            <div class="section-head" data-reveal>
+                <p class="eyebrow">Privacy</p>
+                <h2 id="privacy-title">Private by design</h2>
+                <p class="lead">Nothing is captured until you ask, and what Ink Brain remembers never leaves your Mac.</p>
+            </div>
+            <ul class="privacy-grid">
+                <li class="card" data-reveal style="--delay: 0s">
+                    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect x="4" y="7" width="24" height="17" rx="3" fill="none" stroke="url(#g-ink)" stroke-width="2" /><circle cx="16" cy="15.5" r="4" fill="none" stroke="url(#g-ink)" stroke-width="2" /><path d="M11 28h10" stroke="url(#g-ink)" stroke-width="2" stroke-linecap="round" /></svg>
+                    <h3>Nothing until you ask</h3>
+                    <p>Each question sends one screenshot, plus a zoomed crop around your marks, to the Copilot session you chose. The overlay is excluded from screenshots.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0.06s">
+                    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M16 4a4 4 0 0 1 4 4v7a4 4 0 0 1-8 0V8a4 4 0 0 1 4-4ZM8 14a8 8 0 0 0 16 0M16 22v6" fill="none" stroke="url(#g-ink)" stroke-width="2" stroke-linecap="round" /></svg>
+                    <h3>Voice stays on device</h3>
+                    <p>Speech recognition and the neural voice both run on your Mac, unless you choose to allow Apple's server speech.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0.12s">
+                    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect x="6" y="14" width="20" height="14" rx="3" fill="none" stroke="url(#g-ink)" stroke-width="2" /><path d="M10.5 14v-3.5a5.5 5.5 0 0 1 11 0V14" fill="none" stroke="url(#g-ink)" stroke-width="2" /><circle cx="16" cy="21" r="1.8" fill="url(#g-ink)" /></svg>
+                    <h3>Memory stays local</h3>
+                    <p>Memory lives in <code>~/.ink-brain/memory</code> with private file permissions. Screen history skips password managers and is deleted after 30 days.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0s">
+                    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><path d="M9 5l15 7.5-6.6 1.9L14 21z" fill="none" stroke="url(#g-ink)" stroke-width="2" stroke-linejoin="round" /><path d="M19 22l7 0M22.5 18.5v7" stroke="url(#g-ink)" stroke-width="2" stroke-linecap="round" transform="rotate(45 22.5 22)" /></svg>
+                    <h3>You approve control</h3>
+                    <p>Ink Brain only moves the mouse after you approve the listed steps, and stops when you press Esc, press the shortcut or move the mouse.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0.06s">
+                    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="4" fill="none" stroke="url(#g-ink)" stroke-width="2" stroke-dasharray="4 3" /><path d="M11 16h10M16 11v10" stroke="url(#g-ink)" stroke-width="2" stroke-linecap="round" transform="rotate(45 16 16)" /></svg>
+                    <h3>Sandboxed visuals</h3>
+                    <p>Panels run model-written code in sandboxed frames with no network access, and the overlay blocks web requests.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0.12s">
+                    <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="url(#g-ink)" stroke-width="2" /><path d="M5 16h22M16 5c3.5 3.2 4.8 7 4.8 11s-1.3 7.8-4.8 11c-3.5-3.2-4.8-7-4.8-11S12.5 8.2 16 5z" fill="none" stroke="url(#g-ink)" stroke-width="2" /></svg>
+                    <h3>A careful web reader</h3>
+                    <p>Pages are read in a hidden, signed-out window that loads no images or media. Set it to ask before each new site.</p>
+                </li>
+            </ul>
+        </section>
+        <section class="section hood" id="hood" aria-labelledby="hood-title">
+            <div class="section-head" data-reveal>
+                <p class="eyebrow">Under the hood</p>
+                <h2 id="hood-title">Built on the GitHub Copilot SDK</h2>
+                <p class="lead">The model describes what it wants to show as data, such as shapes, boards and scenes. The overlay validates it and renders it in seconds, so it rarely has to write code.</p>
+            </div>
+
+            <div class="arch card" data-reveal aria-label="How Ink Brain fits together">
+                <div class="arch-node arch-you"><b>You</b><span>shortcut, pen, voice</span></div>
+                <div class="arch-link" aria-hidden="true"><i></i></div>
+                <div class="arch-app">
+                    <p class="arch-label">Ink Brain <span>Electron</span></p>
+                    <div class="arch-pair">
+                        <div class="arch-node"><b>Overlay</b><span>pen, sketches, boards, 3D</span></div>
+                        <div class="arch-link arch-both" aria-hidden="true"><i></i></div>
+                        <div class="arch-node"><b>Main process</b><span>turns, tools, memory</span></div>
+                    </div>
+                </div>
+                <div class="arch-fan">
+                    <div class="arch-row"><div class="arch-link arch-both" aria-hidden="true"><em>Copilot SDK</em><i></i></div><div class="arch-node"><b>Built-in Copilot session</b><span>your subscription, Ink Brain's tools</span></div></div>
+                    <div class="arch-row"><div class="arch-link arch-both" aria-hidden="true"><em>Unix socket</em><i></i></div><div class="arch-node"><b>Copilot CLI and app sessions</b><span>linked after you allow them</span></div></div>
+                    <div class="arch-row"><div class="arch-link arch-both" aria-hidden="true"><em>JSON lines</em><i></i></div><div class="arch-node"><b>Native helper</b><span>Swift: screen capture, speech, input</span></div></div>
+                </div>
+            </div>
+
+            <ul class="hood-grid">
+                <li class="card" data-reveal style="--delay: 0s">
+                    <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><rect x="14" y="14" width="36" height="36" rx="7" /><path d="M22 6v8M32 6v8M42 6v8M22 50v8M32 50v8M42 50v8M6 22h8M6 32h8M6 42h8M50 22h8M50 32h8M50 42h8" /><path d="M32 22 L34.6 29.4 L42 32 L34.6 34.6 L32 42 L29.4 34.6 L22 32 L29.4 29.4 Z" /></svg>
+                    <h3>One Copilot session</h3>
+                    <p>Your screenshot, your marks and your question go to a Copilot session with Ink Brain's live tools.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0.06s">
+                    <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><path d="M8 56 V10 M8 56 H58" /><path d="M12 48 C 22 46, 26 18, 34 18 S 46 40, 58 14" /><circle cx="34" cy="18" r="3.5" /></svg>
+                    <h3>Sketches, boards, 3D</h3>
+                    <p>rough.js sketches, KaTeX motion graphics and three.js models, rendered in sandboxed panels.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0.12s">
+                    <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><path d="M8 28v8M17 20v24M26 12v40M35 22v20M44 16v32M53 26v12" /></svg>
+                    <h3>A voice on your Mac</h3>
+                    <p>On-device speech recognition in, a neural Kokoro voice out, with Apple voices filling in while it loads.</p>
+                </li>
+                <li class="card" data-reveal style="--delay: 0.18s">
+                    <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><rect x="6" y="10" width="52" height="44" rx="7" /><path d="M16 26 L24 32 L16 38 M28 40 H40" /></svg>
+                    <h3>A native helper</h3>
+                    <p>A small Swift helper captures the screen with ScreenCaptureKit, listens, speaks and drives input.</p>
+                </li>
+            </ul>
+
+            <div class="eval card" data-reveal data-eval>
+                <div class="eval-bars" aria-hidden="true">
+                    <div class="eval-cat"><div class="bars"><i class="before" style="--v: 3.75"></i><i class="after" style="--v: 3.85"></i></div><span>Maths</span></div>
+                    <div class="eval-cat"><div class="bars"><i class="before" style="--v: 3.25"></i><i class="after" style="--v: 3.31"></i></div><span>3D</span></div>
+                    <div class="eval-cat"><div class="bars"><i class="before" style="--v: 3.4"></i><i class="after" style="--v: 4.22"></i></div><span>Research</span></div>
+                    <div class="eval-cat"><div class="bars"><i class="before" style="--v: 4.67"></i><i class="after" style="--v: 4.78"></i></div><span>Pointing</span></div>
+                    <div class="eval-cat"><div class="bars"><i class="before" style="--v: 3.89"></i><i class="after" style="--v: 4.06"></i></div><span>Diagrams</span></div>
+                </div>
+                <div class="eval-text">
+                    <h3>Hill-climbed on a real-world eval suite</h3>
+                    <p>26 scenarios across maths, 3D, research, pointing and diagrams, played through Ink Brain's own tools and overlay and scored by a vision model.</p>
+                    <p class="legend"><i class="key before"></i>before <i class="key after"></i>after, per category</p>
+                </div>
+                <div class="eval-score">
+                    <p><span class="from">3.67</span> <span class="arrow" aria-hidden="true">→</span> <span class="gradient-text" data-count-to="3.91" data-count-from="3.67">3.91</span></p>
+                    <small>Average score out of 5</small>
+                </div>
+            </div>
+
+            <ul class="stack" data-reveal aria-label="Built with">
+                <li>GitHub Copilot SDK</li><li>Electron</li><li>Swift and ScreenCaptureKit</li><li>three.js</li><li>KaTeX</li><li>rough.js</li><li>Kokoro</li>
+            </ul>
+        </section>
+
+        <section class="section download" id="download" aria-labelledby="download-title">
+            <div class="download-card card" data-reveal>
+                <div class="download-head">
+                    <span class="drop drop-big" aria-hidden="true"><i></i></span>
+                    <p class="eyebrow">Download</p>
+                    <h2 id="download-title">Get Ink Brain for your Mac</h2>
+                    <p class="lead">Free and open source. One command checks your Mac, installs Ink Brain and adds it to your Applications folder.</p>
+                </div>
+
+                <div class="release" data-release hidden>
+                    <a class="btn btn-primary btn-large" data-release-link href="https://github.com/A-Georgiou/ink-brain/releases/latest">
+                        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 3v9.5M5.5 8.5 10 13l4.5-4.5M4 16.5h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                        <span data-release-label>Download the app</span>
+                    </a>
+                    <p class="small muted" data-release-meta></p>
+                </div>
+
+                <div class="install">
+                    <div class="tabs" role="tablist" aria-label="Ways to install">
+                        <button type="button" role="tab" id="tab-installer" aria-controls="panel-installer" aria-selected="true">One-line installer</button>
+                        <button type="button" role="tab" id="tab-source" aria-controls="panel-source" aria-selected="false" tabindex="-1">From source</button>
+                    </div>
+                    <div class="tab-panel" role="tabpanel" id="panel-installer" aria-labelledby="tab-installer">
+                        <div class="command">
+                            <span class="command-prompt" aria-hidden="true">$</span>
+                            <code data-copy-source>curl -fsSL https://inkbrain.app/install.sh | bash</code>
+                            <button class="copy" type="button" data-copy aria-label="Copy the install command"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="6.5" y="6.5" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M13.5 4.5v-.5a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 4v7A1.5 1.5 0 0 0 5 12.5h.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg><span>Copy</span></button>
+                        </div>
+                        <p class="install-note">Paste it into Terminal. It installs into <code>~/.ink-brain/app</code>, adds <b>Ink Brain</b> to your Applications folder and starts it. Run it again any time to update. <a href="/install.sh">Read the script</a></p>
+                    </div>
+                    <div class="tab-panel" role="tabpanel" id="panel-source" aria-labelledby="tab-source" hidden>
+                        <div class="command command-multi">
+                            <code data-copy-source>git clone https://github.com/A-Georgiou/ink-brain.git
+cd ink-brain
+npm install
+npm start</code>
+                            <button class="copy" type="button" data-copy aria-label="Copy the commands"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="6.5" y="6.5" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" /><path d="M13.5 4.5v-.5a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 4v7A1.5 1.5 0 0 0 5 12.5h.5" fill="none" stroke="currentColor" stroke-width="1.6" /></svg><span>Copy</span></button>
+                        </div>
+                        <p class="install-note">Prefer to see every step? Clone it and run it yourself. <code>npm run doctor</code> checks the helper, permissions, screen capture and voices.</p>
+                    </div>
+                </div>
+
+                <div class="download-grid">
+                    <div>
+                        <h3>You will need</h3>
+                        <ul class="checklist">
+                            <li><b>macOS 14 or later</b> on Apple silicon or Intel</li>
+                            <li><b>A GitHub Copilot subscription</b>, signed in with Copilot CLI using <code>copilot login</code></li>
+                            <li><b>Node.js 22.12 or later</b></li>
+                            <li><b>Xcode Command Line Tools</b>, so the native helper can be built</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>On first launch</h3>
+                        <ol class="numbered">
+                            <li>Allow <b>Ink Brain Helper</b> to use Screen Recording, the Microphone and Speech Recognition, and optionally Accessibility.</li>
+                            <li>After switching on Screen Recording, click <b>Restart helper</b>. The voice model, about 90 MB, downloads in the background.</li>
+                            <li>Press <span class="keys"><kbd>⌥</kbd><kbd>⇧</kbd><kbd>Space</kbd></span>, circle anything and ask.</li>
+                        </ol>
+                    </div>
+                </div>
+                <p class="os-note" data-os-note hidden></p>
+            </div>
+        </section>
+
+        <section class="section faq" id="faq" aria-labelledby="faq-title">
+            <div class="section-head" data-reveal>
+                <p class="eyebrow">FAQ</p>
+                <h2 id="faq-title">Questions, answered</h2>
+            </div>
+            <div class="faq-list" data-reveal>
+                <details>
+                    <summary>Is Ink Brain free?</summary>
+                    <p>Yes. Ink Brain is open source under the MIT licence. It answers using your own GitHub Copilot subscription, through the Copilot SDK.</p>
+                </details>
+                <details>
+                    <summary>Which Macs does it run on?</summary>
+                    <p>Any Mac on macOS 14 or later, with Apple silicon or Intel. Ink Brain is macOS only for now.</p>
+                </details>
+                <details>
+                    <summary>Which model does it use?</summary>
+                    <p>Claude Opus 5.5 by default, through Copilot. Set <code>model</code> in <code>~/.ink-brain/config.json</code> to choose another, and Ink Brain falls back to another vision model if yours is unavailable.</p>
+                </details>
+                <details>
+                    <summary>What does it send, and when?</summary>
+                    <p>Nothing until you ask. Each question sends one screenshot, plus a zoomed crop around your marks, to the Copilot session you chose. Speech recognition and the voice run on your Mac.</p>
+                </details>
+                <details>
+                    <summary>Can I change the shortcut?</summary>
+                    <p>Yes. Set <code>hotkey</code> in <code>~/.ink-brain/config.json</code>, or the <code>INK_BRAIN_HOTKEY</code> environment variable, then restart Ink Brain. <b>Open settings file</b> in the menu bar takes you straight there.</p>
+                </details>
+                <details>
+                    <summary>How do I update or uninstall it?</summary>
+                    <p>Run the installer again to update. To uninstall, run <code>curl -fsSL https://inkbrain.app/install.sh | bash -s -- --uninstall</code>. Your settings and memory stay in <code>~/.ink-brain</code> until you delete it.</p>
+                </details>
+                <details>
+                    <summary>Is this an official GitHub product?</summary>
+                    <p>No. Ink Brain is an independent open source project built on the GitHub Copilot SDK.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="finale" aria-labelledby="finale-title">
+            <div class="finale-inner" data-reveal data-finale>
+                <span class="drop drop-hero" aria-hidden="true"><i></i></span>
+                <h2 id="finale-title" class="finale-word">Ink Brain</h2>
+                <p class="finale-tag">Circle anything. Ask. <span class="gradient-text">See it explained.</span></p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary btn-large" href="#download" data-download>
+                        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 3v9.5M5.5 8.5 10 13l4.5-4.5M4 16.5h12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                        <span data-download-label>Download for Mac</span>
+                    </a>
+                    <a class="btn btn-ghost btn-large" href="https://github.com/A-Georgiou/ink-brain">
+                        <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 .2a.8.8 0 0 1 .7.4l2 4.1 4.5.7a.8.8 0 0 1 .4 1.3l-3.3 3.2.8 4.5a.8.8 0 0 1-1.1.8L8 13.1l-4 2.1a.8.8 0 0 1-1.2-.8l.8-4.5L.4 6.7A.8.8 0 0 1 .8 5.4l4.5-.7 2-4.1A.8.8 0 0 1 8 .2Z" /></svg>
+                        Star on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a class="brand" href="#top"><span class="drop" aria-hidden="true"><i></i></span><span class="brand-name">Ink Brain</span></a>
+                <p>An always-on companion for your Mac, built on the GitHub Copilot SDK.</p>
+            </div>
+            <nav class="footer-links" aria-label="Footer">
+                <div>
+                    <h3>Product</h3>
+                    <a href="#how">How it works</a>
+                    <a href="#explain">Explanations</a>
+                    <a href="#film">Film</a>
+                    <a href="#download">Download</a>
+                </div>
+                <div>
+                    <h3>Project</h3>
+                    <a href="https://github.com/A-Georgiou/ink-brain">Source code</a>
+                    <a href="https://github.com/A-Georgiou/ink-brain/issues">Report an issue</a>
+                    <a href="https://github.com/A-Georgiou/ink-brain/blob/main/LICENSE">MIT licence</a>
+                    <a href="/install.sh">Install script</a>
+                </div>
+            </nav>
+        </div>
+        <div class="footer-base">
+            <p>© 2026 Andrew Georgiou. An independent project, not an official GitHub product.</p>
+            <p>This site sets no cookies and runs no trackers.</p>
+        </div>
+    </footer>
+</body>
+</html>

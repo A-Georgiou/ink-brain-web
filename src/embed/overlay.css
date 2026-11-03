@@ -1,0 +1,55 @@
+/* Replay-only styles: the page under the overlay, the scripted pen and a web fallback for the handwriting. */
+@font-face {
+    font-family: "Noteworthy";
+    font-weight: 700;
+    font-display: block;
+    src: local("Noteworthy Bold"), local("Noteworthy-Bold"), url("../assets/fonts/kalam-700.woff2") format("woff2");
+}
+
+html,
+body {
+    background: #252525;
+}
+
+#page {
+    position: absolute;
+    left: 0;
+    top: 155px;
+    width: 1512px;
+    height: 827px;
+}
+
+#page img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#ink.active {
+    cursor: crosshair;
+}
+
+#pen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 970;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 8px rgba(1, 4, 9, 0.55));
+}
+
+#dock .orb {
+    cursor: default;
+}
+
+#bubble .icon-button {
+    color: var(--muted);
+}
+
+#composer .chip {
+    cursor: default;
+}
+
+#composer .icon-button {
+    cursor: default;
+}

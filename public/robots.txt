@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /embed/
+Sitemap: https://inkbrain.app/sitemap.xml

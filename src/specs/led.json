@@ -1,0 +1,387 @@
+{
+ "scene": {
+  "camera": {
+   "position": [
+    3,
+    12,
+    10
+   ],
+   "target": [
+    3,
+    0,
+    0
+   ]
+  },
+  "objects": [
+   {
+    "color": "#1a1a1a",
+    "id": "pcb",
+    "label": "ESP32 DevKit V1",
+    "region": {
+     "h": 315,
+     "w": 157,
+     "x": 1120,
+     "y": 440
+    },
+    "size": [
+     2.8,
+     0.16
+    ],
+    "type": "base"
+   },
+   {
+    "at": [
+     1197,
+     520
+    ],
+    "color": "#b0b4b8",
+    "footprint": [
+     75,
+     85
+    ],
+    "height": 0.3,
+    "id": "module",
+    "material": "metal",
+    "on": "pcb",
+    "type": "box"
+   },
+   {
+    "at": [
+     1197,
+     740
+    ],
+    "facing": "down",
+    "footprint": [
+     30,
+     20
+    ],
+    "height": 0.3,
+    "id": "usb",
+    "on": "pcb",
+    "part": "micro-usb",
+    "type": "part"
+   },
+   {
+    "at": [
+     1128,
+     597
+    ],
+    "first": "top-left",
+    "footprint": [
+     12,
+     255
+    ],
+    "grid": [
+     1,
+     15
+    ],
+    "height": 0.85,
+    "id": "hl",
+    "on": "pcb",
+    "part": "header",
+    "type": "part"
+   },
+   {
+    "at": [
+     1268,
+     597
+    ],
+    "first": "top-left",
+    "footprint": [
+     12,
+     255
+    ],
+    "grid": [
+     1,
+     15
+    ],
+    "height": 0.85,
+    "id": "hr",
+    "label": "Right header: D2 is 12th, GND 14th",
+    "on": "pcb",
+    "part": "header",
+    "type": "part"
+   },
+   {
+    "color": "#f2f0e8",
+    "id": "bb",
+    "label": "Breadboard",
+    "material": "plastic",
+    "position": [
+     6.5,
+     -0.45,
+     -0.5
+    ],
+    "size": [
+     5,
+     0.9,
+     6
+    ],
+    "type": "box"
+   },
+   {
+    "color": "#333",
+    "id": "holes",
+    "position": [
+     6.5,
+     0.01,
+     -0.5
+    ],
+    "size": [
+     0.08,
+     0.02,
+     0.08
+    ],
+    "spacing": [
+     0.254,
+     0.254
+    ],
+    "type": "box",
+    "grid": [
+     17,
+     21
+    ]
+   },
+   {
+    "color": "#c9a46b",
+    "id": "res",
+    "label": "220 Ω resistor",
+    "length": 1.2,
+    "position": [
+     5,
+     0.35,
+     -2
+    ],
+    "radius": 0.12,
+    "rotation": [
+     90,
+     0,
+     0
+    ],
+    "type": "capsule"
+   },
+   {
+    "color": "#ccc",
+    "id": "rleg",
+    "points": [
+     [
+      5,
+      0,
+      -3
+     ],
+     [
+      5,
+      0.35,
+      -2.8
+     ],
+     [
+      5,
+      0.35,
+      -1.2
+     ],
+     [
+      5,
+      0,
+      -1
+     ]
+    ],
+    "radii": [
+     0.02,
+     0.02,
+     0.02,
+     0.02
+    ],
+    "type": "path",
+    "material": "metal"
+   },
+   {
+    "color": "#ff3030",
+    "glow": false,
+    "id": "led",
+    "label": "LED (long leg = +)",
+    "material": "glass",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      0.25,
+      0
+     ],
+     [
+      0.25,
+      0.5
+     ],
+     [
+      0.2,
+      0.7
+     ],
+     [
+      0.1,
+      0.8
+     ],
+     [
+      0,
+      0.82
+     ]
+    ],
+    "position": [
+     5,
+     0.6,
+     -0.5
+    ],
+    "type": "lathe"
+   },
+   {
+    "color": "#ccc",
+    "id": "anode",
+    "label": "Long leg (+)",
+    "material": "metal",
+    "points": [
+     [
+      5,
+      0.6,
+      -0.6
+     ],
+     [
+      5,
+      0.3,
+      -0.9
+     ],
+     [
+      5,
+      0,
+      -1
+     ]
+    ],
+    "radii": [
+     0.02,
+     0.02,
+     0.02
+    ],
+    "type": "path"
+   },
+   {
+    "color": "#ccc",
+    "id": "cathode",
+    "label": "Short leg (−)",
+    "material": "metal",
+    "points": [
+     [
+      5,
+      0.6,
+      -0.4
+     ],
+     [
+      5,
+      0.3,
+      -0.1
+     ],
+     [
+      5,
+      0,
+      0
+     ]
+    ],
+    "radii": [
+     0.02,
+     0.02,
+     0.02
+    ],
+    "type": "path"
+   },
+   {
+    "color": "#ffb000",
+    "from": "hr#12",
+    "hidden": true,
+    "id": "w1",
+    "label": "D2 (GPIO2)",
+    "to": [
+     5,
+     0.02,
+     -3
+    ],
+    "type": "wire"
+   },
+   {
+    "color": "#222",
+    "from": "hr#14",
+    "hidden": true,
+    "id": "w2",
+    "label": "GND",
+    "to": [
+     5,
+     0.02,
+     0
+    ],
+    "type": "wire"
+   }
+  ]
+ },
+ "steps": [
+  {
+   "say": "This is your ESP32 DevKit, plugged into a breadboard. On the right-hand header, the 12th pin down is D2, which is GPIO 2, and two pins further down is GND.",
+   "scene": [
+    {
+     "do": "highlight",
+     "target": "hr#12"
+    },
+    {
+     "do": "highlight",
+     "target": "hr#14"
+    }
+   ]
+  },
+  {
+   "say": "Run a jumper from D2 into the breadboard. Then put a 220 ohm resistor from that row into a new row, to limit the current.",
+   "scene": [
+    {
+     "do": "show",
+     "target": "w1"
+    },
+    {
+     "do": "highlight",
+     "target": "res"
+    }
+   ]
+  },
+  {
+   "say": "Put the LED's long leg, the positive side, in the same row as the resistor's other end. The short leg goes into a different row.",
+   "scene": [
+    {
+     "do": "highlight",
+     "target": "anode"
+    },
+    {
+     "do": "highlight",
+     "target": "cathode"
+    }
+   ]
+  },
+  {
+   "say": "Finally, wire the short leg's row to GND on the ESP32. Set GPIO 2 to HIGH in your code and the LED lights up.",
+   "scene": [
+    {
+     "do": "show",
+     "target": "w2"
+    },
+    {
+     "along": "w1",
+     "color": "#ffd000",
+     "do": "flow"
+    },
+    {
+     "do": "color",
+     "target": "led",
+     "color": "#ff6060"
+    },
+    {
+     "do": "highlight",
+     "target": "led"
+    }
+   ]
+  }
+ ],
+ "title": "LED on GPIO 2"
+}
