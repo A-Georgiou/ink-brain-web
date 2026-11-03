@@ -117,7 +117,7 @@ export function initStage(root) {
         });
         send("captions", { state: "end" });
         send("state", {});
-        send("bubble", { ...PILL_AT, minimized: true, activity: done ? "Done · drawings stay on the page" : "" });
+        send("bubble", { ...PILL_AT, minimized: true, activity: "" });
         return done;
     }
 

@@ -369,7 +369,7 @@
                 <article class="tile card" data-reveal style="--delay: 0.06s">
                     <div class="tile-art source-art" aria-hidden="true">
                         <div class="mini-page"><i></i><i></i><i></i><i></i><i></i><i></i><span class="scan"></span></div>
-                        <span class="source-chip"><b></b>Reading arxiv.org</span>
+                        <span class="source-chip"><b></b>Reading the page</span>
                     </div>
                     <div class="tile-copy">
                         <h3>Read the source</h3>
@@ -435,7 +435,7 @@
                     <p class="lead">Install the extension and every new Copilot CLI or Copilot app session gets Ink Brain's tools, so it can explain, sketch and speak right where you are working.</p>
                     <ul class="ticks">
                         <li>Send a question from the overlay to a session you already have open with the <b>To:</b> chip</li>
-                        <li>A session must be allowed once before it can see your screen</li>
+                        <li>A session must be allowed once per connection before it can see your screen</li>
                         <li>Taking control of your Mac always needs its own approval</li>
                     </ul>
                 </div>
@@ -457,7 +457,7 @@
             <div class="section-head" data-reveal>
                 <p class="eyebrow">Privacy</p>
                 <h2 id="privacy-title">Private by design</h2>
-                <p class="lead">Nothing is captured until you ask, and what Ink Brain remembers never leaves your Mac.</p>
+                <p class="lead">Nothing is captured until you ask, and what Ink Brain remembers is stored only on your Mac.</p>
             </div>
             <ul class="privacy-grid">
                 <li class="card" data-reveal style="--delay: 0s">
@@ -526,7 +526,7 @@
                 <li class="card" data-reveal style="--delay: 0.06s">
                     <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><path d="M8 56 V10 M8 56 H58" /><path d="M12 48 C 22 46, 26 18, 34 18 S 46 40, 58 14" /><circle cx="34" cy="18" r="3.5" /></svg>
                     <h3>Sketches, boards, 3D</h3>
-                    <p>rough.js sketches, KaTeX motion graphics and three.js models, rendered in sandboxed panels.</p>
+                    <p>rough.js sketches drawn on the page, with KaTeX motion graphics and three.js models in sandboxed panels.</p>
                 </li>
                 <li class="card" data-reveal style="--delay: 0.12s">
                     <svg viewBox="0 0 64 64" width="44" height="44" aria-hidden="true"><path d="M8 28v8M17 20v24M26 12v40M35 22v20M44 16v32M53 26v12" /></svg>
@@ -626,7 +626,7 @@ npm start</code>
                 </details>
                 <details>
                     <summary>Which model does it use?</summary>
-                    <p>Claude Opus 5.5 by default, through Copilot. Set <code>model</code> in <code>~/.ink-brain/config.json</code> to choose another, and Ink Brain falls back to another vision model if yours is unavailable.</p>
+                    <p>GPT-6.1 Terra by default, through Copilot. If your plan cannot use it, Ink Brain switches to Copilot's Auto mode, which picks the model for you, or to the best vision model your plan includes. To use a different model, set <code>model</code> in <code>~/.ink-brain/config.json</code> or the <code>INK_BRAIN_MODEL</code> environment variable, then restart Ink Brain.</p>
                 </details>
                 <details>
                     <summary>What does it send, and when?</summary>
