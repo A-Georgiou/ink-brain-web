@@ -1,4 +1,4 @@
-// Page motion: reveals on scroll, the hero's entrance, hand-drawn rings, card spotlights and counters.
+// Page motion: reveals on scroll, the hero's entrance, hand-drawn rings and card spotlights.
 const still = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // A hand-drawn loop like the user's pen: slightly wobbly and overshooting where it started.
@@ -93,23 +93,4 @@ export function initSpotlight() {
         },
         { passive: true },
     );
-}
-
-export function initCounters() {
-    for (const el of document.querySelectorAll("[data-count-to]")) {
-        const [from, to] = [Number(el.dataset.countFrom), Number(el.dataset.countTo)];
-        el.textContent = from.toFixed(2);
-        new IntersectionObserver(([entry], observer) => {
-            if (!entry.isIntersecting) return;
-            observer.disconnect();
-            const start = performance.now();
-            const tick = (now) => {
-                const t = still() ? 1 : Math.min(1, (now - start - 400) / 1300);
-                const eased = t <= 0 ? 0 : 1 - (1 - t) ** 3;
-                el.textContent = (from + (to - from) * eased).toFixed(2);
-                if (t < 1) requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
-        }, { threshold: 0.5 }).observe(el);
-    }
 }
