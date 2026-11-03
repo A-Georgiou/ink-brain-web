@@ -149,7 +149,9 @@
 
 .stage {
     position: relative;
-    width: min(1240px, 100% - 32px);
+    width: min(1080px, 100% - 32px);
+    /* Fits the window and its caption row in about 78% of the screen height. */
+    width: min(1080px, 100% - 32px, max(600px, (78svh - 100px) * 1512 / 827));
     margin: clamp(48px, 6vw, 72px) auto 0;
     perspective: 2000px;
 }
@@ -308,6 +310,7 @@
 
 .stage-dock {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 16px;
     margin-top: 16px;
@@ -315,6 +318,7 @@
 
 .stage-caption {
     flex: 1;
+    min-width: min(560px, 100%);
     min-height: 1.5em;
     margin: 0;
     color: var(--muted);
