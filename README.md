@@ -2,7 +2,7 @@
 
 The website for [Ink Brain](https://github.com/A-Georgiou/ink-brain): circle anything on your screen, ask, and see it explained.
 
-The page replays real answers from Ink Brain through the app's own drawing, board and 3D engines, so every explanation on the site is rendered live in the browser rather than played from a video.
+The page's demos are written in Ink Brain's own annotation, board and 3D scene language and drawn by the app's engines, so every explanation on the site is rendered live in the browser rather than played from a video.
 
 ## Develop
 
@@ -19,11 +19,11 @@ npm run lint
 | Path | Role |
 | --- | --- |
 | `index.html` | The page. |
-| `src/site/` | Page behaviour: the hero replay (`stage.js`), the board and 3D showcases (`panels.js`), narration (`voice.js`, `explain.js`), the aurora background, the film, downloads and motion. |
+| `src/site/` | Page behaviour: the hero demo (`stage.js`), the board and 3D showcases (`panels.js`), narration (`voice.js`, `explain.js`), the aurora background, the film, downloads and motion. |
 | `src/engine/` | Ink Brain's renderers and overlay styles, vendored from the app with only import paths changed. |
 | `embed/` | Frames the engines run in: `overlay.html` replays the overlay on a real page, `sandbox.html` renders boards and 3D scenes. |
-| `src/specs/` | The exact explanations Ink Brain produced in the demo film, replayed by the site. |
-| `public/media/` | The film, its poster, the page behind the hero replay and narration in Ink Brain's voice. |
+| `src/specs/` | The demos: blood flow on a Wikipedia heart diagram, a Fourier series board, a cut-away turbofan and a planetary gear set, plus narration timings. |
+| `public/media/` | The film, its poster, the page behind the hero demo and narration in Ink Brain's voice. |
 | `public/install.sh` | The one-line installer served at `https://inkbrain.app/install.sh`. |
 
 To pick up engine changes from the app, copy `src/overlay/{annotations,board,scene,shapes,parts}.js`, `src/overlay/overlay.css` and `src/shared/{board,scene,mathexpr,geometry}.mjs` into `src/engine/`, then point their imports at `../shared/`, `roughjs` and `katex` as the current files do.
