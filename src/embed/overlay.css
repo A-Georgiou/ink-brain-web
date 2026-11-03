@@ -25,6 +25,11 @@ body {
     height: 100%;
 }
 
+/* The stage crops the 155px toolbar strip, so toasts drop below it. */
+#toasts {
+    top: 195px;
+}
+
 #ink.active {
     cursor: crosshair;
 }

@@ -6,8 +6,8 @@ import { Annotations } from "../engine/overlay/annotations.js";
 const $ = (selector) => document.querySelector(selector);
 
 // The page behind the replay; the host asks for the full-resolution frame only when it will be shown that large.
-const page = new URLSearchParams(location.search).has("hd") ? "/media/bert-page" : "/media/bert-page-1x";
-$("#page").innerHTML = `<source type="image/avif" srcset="${page}.avif" /><source type="image/webp" srcset="${page}.webp" /><img src="/media/bert-page.jpg" width="1512" height="827" alt="" draggable="false" />`;
+const page = new URLSearchParams(location.search).has("hd") ? "/media/heart-page" : "/media/heart-page-1x";
+$("#page").innerHTML = `<source type="image/avif" srcset="${page}.avif" /><source type="image/webp" srcset="${page}.webp" /><img src="/media/heart-page.jpg" width="1512" height="827" alt="" draggable="false" />`;
 const body = document.body;
 const post = (message) => parent.postMessage(message, location.origin);
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

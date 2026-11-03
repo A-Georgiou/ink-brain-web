@@ -144,7 +144,7 @@ function initVoiceSample() {
             return setPlaying(false);
         }
         setPlaying(true);
-        const clip = await voice.play("bert", 0, owner, true);
+        const clip = await voice.play("heart", 0, owner, true);
         if (!clip) return setPlaying(false);
         await clip.ended;
         setPlaying(false);

@@ -134,11 +134,11 @@
                 <div class="stage-window">
                     <div class="stage-bar">
                         <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
-                        <span class="stage-url"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4.5 7V5.5a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>arxiv.org/pdf/1810.04805</span>
-                        <span class="stage-live" data-stage-status><i aria-hidden="true"></i><span>Live replay</span></span>
+                        <span class="stage-url"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4.5 7V5.5a3.5 3.5 0 0 1 7 0V7M3.5 7h9v6.5h-9z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" /></svg>en.wikipedia.org/wiki/Heart</span>
+                        <span class="stage-live" data-stage-status><i aria-hidden="true"></i><span>Live demo</span></span>
                     </div>
                     <div class="stage-screen" data-stage-screen>
-                        <iframe title="Ink Brain circling the BERT figure in a research paper and explaining it step by step" data-src="/embed/overlay.html" tabindex="-1"></iframe>
+                        <iframe title="Ink Brain circling a heart diagram on Wikipedia and explaining how blood flows through it, step by step" data-src="/embed/overlay.html" tabindex="-1"></iframe>
                         <button class="stage-start" type="button" data-stage-start hidden>
                             <span>Replay</span>
                         </button>
@@ -248,21 +248,21 @@
                 <div class="showcase-copy" data-reveal>
                     <p class="eyebrow">Motion graphics</p>
                     <h3 id="board-title">Maths that moves</h3>
-                    <p>Circle a dense definition and Ink Brain works through it on a board in the style of 3Blue1Brown, with small concrete numbers, narrated step by step.</p>
+                    <p>Circle a formula and Ink Brain builds it up on a board in the style of 3Blue1Brown: circles that spin, graphs that trace themselves and equations that rearrange, narrated step by step.</p>
                     <ul class="ticks">
                         <li>Typeset with KaTeX and checked before anything shows</li>
                         <li>Equations morph from one form into the next</li>
                         <li>Graphs follow the variables as they change</li>
                     </ul>
                 </div>
-                <figure class="panel" data-panel="pack" data-reveal>
+                <figure class="panel" data-panel="fourier" data-reveal>
                     <div class="panel-bar">
                         <span class="panel-kind">Explainer</span>
-                        <span class="panel-title" data-panel-title>What a Pack recipe means</span>
+                        <span class="panel-title" data-panel-title>Building a square wave from circles</span>
                         <span class="panel-live" title="Rendered live in your browser"><i aria-hidden="true"></i>Live</span>
                     </div>
                     <div class="panel-body board-body" data-panel-body>
-                        <iframe data-src="/embed/sandbox.html" title="An animated maths board explaining what a Pack recipe means" tabindex="-1"></iframe>
+                        <iframe data-src="/embed/sandbox.html" title="An animated maths board showing how spinning circles add up to a square wave" tabindex="-1"></iframe>
                         <div class="panel-captions" data-panel-captions hidden><div class="caption-steps"></div><p class="caption-text"></p></div>
                         <button class="panel-replay" type="button" data-panel-replay hidden>
                             <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M4.5 10a5.5 5.5 0 1 0 1.7-4M4.5 3.5v3.2h3.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -270,7 +270,7 @@
                         </button>
                     </div>
                     <figcaption class="panel-foot">
-                        <span>From the film: a definition circled on OpenReview</span>
+                        <span data-panel-source>Example: a Fourier series, built from spinning circles</span>
                         <button class="chip-btn chip-small" type="button" data-sound aria-pressed="false"><svg class="i-on" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="M13.5 7a4 4 0 0 1 0 6M15.6 5a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><svg class="i-off" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span data-sound-label>Sound off</span></button>
                     </figcaption>
                 </figure>
@@ -280,17 +280,16 @@
                 <div class="showcase-copy" data-reveal>
                     <p class="eyebrow">3D models</p>
                     <h3 id="model-title">Turn it around. Take it apart.</h3>
-                    <p>Physical things become models built from the picture on your screen, wired up or set in motion one step at a time. Drag a model to look around it.</p>
+                    <p>Physical things become detailed models you can cut open, take apart and set in motion, one narrated step at a time. Drag a model to look around it.</p>
                     <div class="scene-tabs" role="tablist" aria-label="3D examples" data-scene-tabs>
-                        <button type="button" role="tab" aria-selected="true" data-scene="led">LED on GPIO 2</button>
-                        <button type="button" role="tab" aria-selected="false" data-scene="heart">How the heart pumps blood</button>
-                        <button type="button" role="tab" aria-selected="false" data-scene="stepper">Stepper motor wiring</button>
+                        <button type="button" role="tab" aria-selected="true" data-scene="turbofan">Jet engine</button>
+                        <button type="button" role="tab" aria-selected="false" data-scene="gearbox">Planetary gears</button>
                     </div>
                 </div>
-                <figure class="panel" data-panel="led" data-reveal>
+                <figure class="panel" data-panel="turbofan" data-reveal>
                     <div class="panel-bar">
                         <span class="panel-kind">Explainer</span>
-                        <span class="panel-title" data-panel-title>LED on GPIO 2</span>
+                        <span class="panel-title" data-panel-title>Inside a jet engine</span>
                         <span class="panel-live" title="Rendered live in your browser"><i aria-hidden="true"></i>Live</span>
                     </div>
                     <div class="panel-body scene-body" data-panel-body>
@@ -304,7 +303,7 @@
                         </button>
                     </div>
                     <figcaption class="panel-foot">
-                        <span data-panel-source>From the film: a pinout circled in image search</span>
+                        <span data-panel-source>Example: a turbofan, cut open while it runs</span>
                         <button class="chip-btn chip-small" type="button" data-sound aria-pressed="false"><svg class="i-on" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="M13.5 7a4 4 0 0 1 0 6M15.6 5a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><svg class="i-off" viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><path d="M3.5 7.5h3l4-3.5v12l-4-3.5h-3z" fill="currentColor" /><path d="m13.5 8 4 4m0-4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg><span data-sound-label>Sound off</span></button>
                     </figcaption>
                 </figure>
@@ -312,7 +311,7 @@
 
             <p class="engine-note" data-reveal>
                 <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 2.5 3.5 5v4.6c0 4 2.8 6.9 6.5 7.9 3.7-1 6.5-3.9 6.5-7.9V5z" fill="none" stroke="url(#g-ink)" stroke-width="1.7" stroke-linejoin="round" /><path d="m7 10 2 2 4-4.2" fill="none" stroke="url(#g-ink)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                <span>None of these are videos. Each one is Ink Brain's own rendering engine, running in your browser, replaying the exact output the model wrote.</span>
+                <span>None of these are videos. Each demo is written in the same scene and board language Ink Brain's model writes, and drawn live in your browser by Ink Brain's own engine.</span>
             </p>
         </section>
 
@@ -327,7 +326,7 @@
                     <video data-film preload="none" playsinline controls aria-label="Ink Brain demo film">
                         <source src="/media/film.mp4" type="video/mp4" />
                     </video>
-                    <button class="film-cover" type="button" data-film-cover aria-label="Play the film">
+                    <button class="film-cover" type="button" data-film-cover aria-label="Watch the film, 4:31">
                         <picture>
                             <source type="image/avif" srcset="/media/film-poster.avif" />
                             <source type="image/webp" srcset="/media/film-poster.webp" />
@@ -693,6 +692,7 @@ npm start</code>
         <div class="footer-base">
             <p>© 2026 Andrew Georgiou. An independent project, not an official GitHub product.</p>
             <p>This site sets no cookies and runs no trackers.</p>
+            <p class="footer-credit">Heart diagram by <a href="https://commons.wikimedia.org/wiki/File:Diagram_of_the_human_heart_(cropped).svg">Wapcaplet</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via Wikimedia Commons.</p>
         </div>
     </footer>
 </body>

@@ -1,13 +1,12 @@
-// The board and 3D showcases: each panel replays a real explanation through Ink Brain's own renderers.
+// The board and 3D showcases: each panel plays an explanation written in Ink Brain's language through its own renderers.
 import { createRun, playSteps } from "./explain.js";
 import { voice } from "./voice.js";
 
-const specs = import.meta.glob(["../specs/pack.json", "../specs/led.json", "../specs/heart.json", "../specs/stepper.json"], { import: "default" });
+const specs = import.meta.glob(["../specs/fourier.json", "../specs/turbofan.json", "../specs/gearbox.json"], { import: "default" });
 const SOURCES = {
-    pack: "From the film: a definition circled on OpenReview",
-    led: "From the film: a pinout circled in image search",
-    heart: "Asked about a diagram of the heart",
-    stepper: "Asked how to drive a stepper motor from an ESP32",
+    fourier: "Example: a Fourier series, built from spinning circles",
+    turbofan: "Example: a turbofan, cut open while it runs",
+    gearbox: "Example: a planetary gear set in motion",
 };
 
 // The same payload the app sends its panel sandbox: the stage plus one list of actions per narrated step.

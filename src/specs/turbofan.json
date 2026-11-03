@@ -1,0 +1,2109 @@
+{
+ "title": "Inside a jet engine",
+ "scene": {
+  "camera": {
+   "position": [
+    -4.6,
+    2.5,
+    8.4
+   ],
+   "target": [
+    0.3,
+    0,
+    0
+   ]
+  },
+  "objects": [
+   {
+    "id": "lp-spool",
+    "type": "group"
+   },
+   {
+    "id": "hp-spool",
+    "type": "group"
+   },
+   {
+    "id": "nacelle",
+    "type": "lathe",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "color": "#eef1f5",
+    "material": "paint",
+    "label": "Nacelle",
+    "cut": [
+     "cutter"
+    ],
+    "points": [
+     [
+      1.72,
+      -2.78
+     ],
+     [
+      1.82,
+      -2.83
+     ],
+     [
+      1.93,
+      -2.76
+     ],
+     [
+      2.0,
+      -2.48
+     ],
+     [
+      1.99,
+      -1.7
+     ],
+     [
+      1.94,
+      -0.7
+     ],
+     [
+      1.83,
+      0.15
+     ],
+     [
+      1.64,
+      0.85
+     ],
+     [
+      1.57,
+      0.85
+     ],
+     [
+      1.6,
+      0.2
+     ],
+     [
+      1.66,
+      -0.8
+     ],
+     [
+      1.67,
+      -1.6
+     ],
+     [
+      1.67,
+      -2.35
+     ],
+     [
+      1.69,
+      -2.64
+     ],
+     [
+      1.72,
+      -2.78
+     ]
+    ]
+   },
+   {
+    "id": "core-case",
+    "type": "lathe",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "color": "#8f99a3",
+    "material": "metal",
+    "cut": [
+     "cutter"
+    ],
+    "points": [
+     [
+      0.9,
+      -1.74
+     ],
+     [
+      0.98,
+      -1.6
+     ],
+     [
+      1.01,
+      -1.25
+     ],
+     [
+      1.03,
+      -0.55
+     ],
+     [
+      1.01,
+      0.25
+     ],
+     [
+      0.97,
+      0.95
+     ],
+     [
+      0.92,
+      1.55
+     ],
+     [
+      0.88,
+      2.05
+     ],
+     [
+      0.84,
+      2.05
+     ],
+     [
+      0.87,
+      1.7
+     ],
+     [
+      0.66,
+      0.98
+     ],
+     [
+      0.63,
+      0.7
+     ],
+     [
+      0.67,
+      0.42
+     ],
+     [
+      0.63,
+      0.16
+     ],
+     [
+      0.51,
+      0.03
+     ],
+     [
+      0.6,
+      -0.6
+     ],
+     [
+      0.69,
+      -1.02
+     ],
+     [
+      0.75,
+      -1.16
+     ],
+     [
+      0.87,
+      -1.3
+     ],
+     [
+      0.88,
+      -1.62
+     ],
+     [
+      0.9,
+      -1.74
+     ]
+    ]
+   },
+   {
+    "id": "cutter",
+    "type": "box",
+    "size": [
+     4.7,
+     2.7,
+     2.7
+    ],
+    "position": [
+     -0.12,
+     1.35,
+     1.35
+    ],
+    "radius": 0
+   },
+   {
+    "id": "spinner",
+    "type": "lathe",
+    "parent": "lp-spool",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "color": "#f2f4f7",
+    "material": "paint",
+    "points": [
+     [
+      0,
+      -2.64
+     ],
+     [
+      0.1,
+      -2.58
+     ],
+     [
+      0.22,
+      -2.47
+     ],
+     [
+      0.33,
+      -2.32
+     ],
+     [
+      0.42,
+      -2.15
+     ],
+     [
+      0.48,
+      -1.98
+     ],
+     [
+      0.5,
+      -1.84
+     ],
+     [
+      0.5,
+      -1.78
+     ],
+     [
+      0,
+      -1.78
+     ]
+    ]
+   },
+   {
+    "id": "spiral",
+    "type": "path",
+    "parent": "lp-spool",
+    "points": [
+     [
+      -2.6,
+      0.071,
+      0.0
+     ],
+     [
+      -2.576,
+      0.106,
+      0.023
+     ],
+     [
+      -2.553,
+      0.122,
+      0.056
+     ],
+     [
+      -2.529,
+      0.127,
+      0.097
+     ],
+     [
+      -2.505,
+      0.121,
+      0.141
+     ],
+     [
+      -2.481,
+      0.1,
+      0.187
+     ],
+     [
+      -2.458,
+      0.063,
+      0.224
+     ],
+     [
+      -2.434,
+      0.015,
+      0.25
+     ],
+     [
+      -2.41,
+      -0.042,
+      0.265
+     ],
+     [
+      -2.386,
+      -0.104,
+      0.266
+     ],
+     [
+      -2.363,
+      -0.168,
+      0.252
+     ],
+     [
+      -2.339,
+      -0.231,
+      0.222
+     ],
+     [
+      -2.315,
+      -0.287,
+      0.176
+     ],
+     [
+      -2.291,
+      -0.33,
+      0.114
+     ],
+     [
+      -2.268,
+      -0.359,
+      0.043
+     ],
+     [
+      -2.244,
+      -0.373,
+      -0.037
+     ],
+     [
+      -2.22,
+      -0.368,
+      -0.12
+     ],
+     [
+      -2.196,
+      -0.345,
+      -0.202
+     ],
+     [
+      -2.173,
+      -0.303,
+      -0.28
+     ],
+     [
+      -2.149,
+      -0.243,
+      -0.348
+     ],
+     [
+      -2.125,
+      -0.166,
+      -0.4
+     ],
+     [
+      -2.101,
+      -0.078,
+      -0.434
+     ],
+     [
+      -2.078,
+      0.018,
+      -0.449
+     ],
+     [
+      -2.054,
+      0.116,
+      -0.443
+     ],
+     [
+      -2.03,
+      0.212,
+      -0.416
+     ],
+     [
+      -2.006,
+      0.301,
+      -0.367
+     ],
+     [
+      -1.982,
+      0.379,
+      -0.299
+     ],
+     [
+      -1.959,
+      0.438,
+      -0.213
+     ],
+     [
+      -1.935,
+      0.477,
+      -0.114
+     ],
+     [
+      -1.911,
+      0.494,
+      -0.01
+     ],
+     [
+      -1.888,
+      0.488,
+      0.097
+     ],
+     [
+      -1.864,
+      0.459,
+      0.201
+     ],
+     [
+      -1.84,
+      0.408,
+      0.296
+     ]
+    ],
+    "radius": 0.016,
+    "color": "#1f242c",
+    "material": "matte"
+   },
+   {
+    "id": "fan-blades",
+    "type": "extrude",
+    "parent": "lp-spool",
+    "points": [
+     [
+      -0.17,
+      0.5
+     ],
+     [
+      0.19,
+      0.5
+     ],
+     [
+      0.25,
+      0.75
+     ],
+     [
+      0.33,
+      1.05
+     ],
+     [
+      0.41,
+      1.32
+     ],
+     [
+      0.45,
+      1.5
+     ],
+     [
+      0.44,
+      1.6
+     ],
+     [
+      0.12,
+      1.6
+     ],
+     [
+      -0.03,
+      1.5
+     ],
+     [
+      -0.14,
+      1.26
+     ],
+     [
+      -0.2,
+      0.95
+     ],
+     [
+      -0.21,
+      0.7
+     ]
+    ],
+    "depth": 0.028,
+    "bevel": 0.008,
+    "position": [
+     -1.98,
+     0,
+     0
+    ],
+    "rotation": [
+     0,
+     48,
+     0
+    ],
+    "radial": 22,
+    "axis": "x",
+    "color": "#c9d1d9",
+    "material": "metal",
+    "label": "Fan"
+   },
+   {
+    "id": "ogv",
+    "type": "box",
+    "size": [
+     0.12,
+     0.62,
+     0.018
+    ],
+    "radius": 0.006,
+    "position": [
+     -1.18,
+     1.345,
+     0
+    ],
+    "rotation": [
+     0,
+     -14,
+     0
+    ],
+    "radial": 36,
+    "axis": "x",
+    "color": "#b9c1ca",
+    "material": "metal"
+   },
+   {
+    "id": "lpc-drum",
+    "type": "cylinder",
+    "parent": "lp-spool",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "position": [
+     -1.45,
+     0,
+     0
+    ],
+    "radius": 0.6,
+    "radius_top": 0.56,
+    "height": 0.52,
+    "color": "#7e8893",
+    "material": "metal"
+   },
+   {
+    "id": "lpc-1",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.07,
+     0.26,
+     0.016
+    ],
+    "radius": 0.005,
+    "position": [
+     -1.62,
+     0.73,
+     0
+    ],
+    "rotation": [
+     0,
+     48,
+     0
+    ],
+    "radial": 30,
+    "axis": "x",
+    "color": "#c9d0d7",
+    "material": "metal"
+   },
+   {
+    "id": "lpc-2",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.07,
+     0.242,
+     0.016
+    ],
+    "radius": 0.005,
+    "position": [
+     -1.47,
+     0.709,
+     0
+    ],
+    "rotation": [
+     0,
+     48,
+     0
+    ],
+    "radial": 30,
+    "axis": "x",
+    "color": "#c9d0d7",
+    "material": "metal",
+    "label": "Low-pressure compressor"
+   },
+   {
+    "id": "lpc-3",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.07,
+     0.224,
+     0.016
+    ],
+    "radius": 0.005,
+    "position": [
+     -1.32,
+     0.688,
+     0
+    ],
+    "rotation": [
+     0,
+     48,
+     0
+    ],
+    "radial": 30,
+    "axis": "x",
+    "color": "#c9d0d7",
+    "material": "metal"
+   },
+   {
+    "id": "lpc-vane-1",
+    "type": "box",
+    "size": [
+     0.05,
+     0.245,
+     0.014
+    ],
+    "radius": 0.004,
+    "position": [
+     -1.545,
+     0.722,
+     0
+    ],
+    "rotation": [
+     0,
+     -30,
+     0
+    ],
+    "radial": 30,
+    "axis": "x",
+    "color": "#86909b",
+    "material": "metal"
+   },
+   {
+    "id": "lpc-vane-2",
+    "type": "box",
+    "size": [
+     0.05,
+     0.227,
+     0.014
+    ],
+    "radius": 0.004,
+    "position": [
+     -1.395,
+     0.702,
+     0
+    ],
+    "rotation": [
+     0,
+     -30,
+     0
+    ],
+    "radial": 30,
+    "axis": "x",
+    "color": "#86909b",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-drum",
+    "type": "cylinder",
+    "parent": "hp-spool",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "position": [
+     -0.5,
+     0,
+     0
+    ],
+    "radius": 0.42,
+    "radius_top": 0.37,
+    "height": 1.12,
+    "color": "#727c87",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-1",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.25,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -1.0,
+     0.545,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome"
+   },
+   {
+    "id": "hpc-vane-1",
+    "type": "box",
+    "size": [
+     0.04,
+     0.24,
+     0.011
+    ],
+    "radius": 0.003,
+    "position": [
+     -0.93,
+     0.545,
+     0
+    ],
+    "rotation": [
+     0,
+     -34,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#7f8a96",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-2",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.23,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -0.86,
+     0.529,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome"
+   },
+   {
+    "id": "hpc-vane-2",
+    "type": "box",
+    "size": [
+     0.04,
+     0.22,
+     0.011
+    ],
+    "radius": 0.003,
+    "position": [
+     -0.79,
+     0.529,
+     0
+    ],
+    "rotation": [
+     0,
+     -34,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#7f8a96",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-3",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.21,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -0.72,
+     0.513,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome"
+   },
+   {
+    "id": "hpc-vane-3",
+    "type": "box",
+    "size": [
+     0.04,
+     0.2,
+     0.011
+    ],
+    "radius": 0.003,
+    "position": [
+     -0.65,
+     0.513,
+     0
+    ],
+    "rotation": [
+     0,
+     -34,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#7f8a96",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-4",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.19,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -0.58,
+     0.497,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome",
+    "label": "High-pressure compressor"
+   },
+   {
+    "id": "hpc-vane-4",
+    "type": "box",
+    "size": [
+     0.04,
+     0.18,
+     0.011
+    ],
+    "radius": 0.003,
+    "position": [
+     -0.51,
+     0.497,
+     0
+    ],
+    "rotation": [
+     0,
+     -34,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#7f8a96",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-5",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.17,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -0.44,
+     0.481,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome"
+   },
+   {
+    "id": "hpc-vane-5",
+    "type": "box",
+    "size": [
+     0.04,
+     0.16,
+     0.011
+    ],
+    "radius": 0.003,
+    "position": [
+     -0.37,
+     0.481,
+     0
+    ],
+    "rotation": [
+     0,
+     -34,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#7f8a96",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-6",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.15,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -0.3,
+     0.465,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome"
+   },
+   {
+    "id": "hpc-vane-6",
+    "type": "box",
+    "size": [
+     0.04,
+     0.14,
+     0.011
+    ],
+    "radius": 0.003,
+    "position": [
+     -0.23,
+     0.465,
+     0
+    ],
+    "rotation": [
+     0,
+     -34,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#7f8a96",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-7",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.13,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -0.16,
+     0.449,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome"
+   },
+   {
+    "id": "hpc-vane-7",
+    "type": "box",
+    "size": [
+     0.04,
+     0.12,
+     0.011
+    ],
+    "radius": 0.003,
+    "position": [
+     -0.09,
+     0.449,
+     0
+    ],
+    "rotation": [
+     0,
+     -34,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#7f8a96",
+    "material": "metal"
+   },
+   {
+    "id": "hpc-8",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.055,
+     0.11,
+     0.013
+    ],
+    "radius": 0.004,
+    "position": [
+     -0.02,
+     0.433,
+     0
+    ],
+    "rotation": [
+     0,
+     52,
+     0
+    ],
+    "radial": 26,
+    "axis": "x",
+    "color": "#dde2e7",
+    "material": "chrome"
+   },
+   {
+    "id": "combustor",
+    "type": "torus",
+    "rotation": [
+     0,
+     90,
+     0
+    ],
+    "position": [
+     0.33,
+     0,
+     0
+    ],
+    "radius": 0.5,
+    "tube": 0.11,
+    "scale": [
+     1,
+     1,
+     1.9
+    ],
+    "color": "#b07a4f",
+    "material": "copper",
+    "label": "Combustor",
+    "cut": [
+     "cutter",
+     "combustor-hollow"
+    ]
+   },
+   {
+    "id": "combustor-hollow",
+    "type": "torus",
+    "rotation": [
+     0,
+     90,
+     0
+    ],
+    "position": [
+     0.33,
+     0,
+     0
+    ],
+    "radius": 0.5,
+    "tube": 0.092,
+    "scale": [
+     1,
+     1,
+     1.9
+    ]
+   },
+   {
+    "id": "flame",
+    "type": "torus",
+    "rotation": [
+     0,
+     90,
+     0
+    ],
+    "position": [
+     0.36,
+     0,
+     0
+    ],
+    "radius": 0.5,
+    "tube": 0.062,
+    "scale": [
+     1,
+     1,
+     1.7
+    ],
+    "color": "#ff6a1f",
+    "glow": true,
+    "hidden": true
+   },
+   {
+    "id": "nozzles",
+    "type": "cylinder",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "position": [
+     0.11,
+     0.5,
+     0
+    ],
+    "radius": 0.024,
+    "height": 0.14,
+    "radial": 18,
+    "axis": "x",
+    "color": "#e6ebf0",
+    "material": "chrome"
+   },
+   {
+    "id": "hpt-disk",
+    "type": "cylinder",
+    "parent": "hp-spool",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "position": [
+     0.74,
+     0,
+     0
+    ],
+    "radius": 0.42,
+    "height": 0.26,
+    "color": "#8a6d45",
+    "material": "metal"
+   },
+   {
+    "id": "hpt-1",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.07,
+     0.18,
+     0.02
+    ],
+    "radius": 0.005,
+    "position": [
+     0.68,
+     0.51,
+     0
+    ],
+    "rotation": [
+     0,
+     -50,
+     0
+    ],
+    "radial": 34,
+    "axis": "x",
+    "color": "#e2b15b",
+    "material": "gold",
+    "label": "High-pressure turbine"
+   },
+   {
+    "id": "hpt-2",
+    "type": "box",
+    "parent": "hp-spool",
+    "size": [
+     0.07,
+     0.19,
+     0.02
+    ],
+    "radius": 0.005,
+    "position": [
+     0.82,
+     0.515,
+     0
+    ],
+    "rotation": [
+     0,
+     -50,
+     0
+    ],
+    "radial": 34,
+    "axis": "x",
+    "color": "#e2b15b",
+    "material": "gold"
+   },
+   {
+    "id": "hpt-vane",
+    "type": "box",
+    "size": [
+     0.05,
+     0.17,
+     0.016
+    ],
+    "radius": 0.004,
+    "position": [
+     0.75,
+     0.51,
+     0
+    ],
+    "rotation": [
+     0,
+     32,
+     0
+    ],
+    "radial": 34,
+    "axis": "x",
+    "color": "#9c7b4c",
+    "material": "metal"
+   },
+   {
+    "id": "lpt-drum",
+    "type": "cylinder",
+    "parent": "lp-spool",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "position": [
+     1.32,
+     0,
+     0
+    ],
+    "radius": 0.45,
+    "radius_top": 0.5,
+    "height": 0.78,
+    "color": "#7b6243",
+    "material": "metal"
+   },
+   {
+    "id": "lpt-1",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.065,
+     0.18,
+     0.018
+    ],
+    "radius": 0.005,
+    "position": [
+     1.0,
+     0.54,
+     0
+    ],
+    "rotation": [
+     0,
+     -46,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#c08a4e",
+    "material": "copper"
+   },
+   {
+    "id": "lpt-vane-1",
+    "type": "box",
+    "size": [
+     0.045,
+     0.18,
+     0.014
+    ],
+    "radius": 0.004,
+    "position": [
+     1.075,
+     0.55,
+     0
+    ],
+    "rotation": [
+     0,
+     30,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#8c6a45",
+    "material": "metal"
+   },
+   {
+    "id": "lpt-2",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.065,
+     0.223,
+     0.018
+    ],
+    "radius": 0.005,
+    "position": [
+     1.15,
+     0.574,
+     0
+    ],
+    "rotation": [
+     0,
+     -46,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#c08a4e",
+    "material": "copper"
+   },
+   {
+    "id": "lpt-vane-2",
+    "type": "box",
+    "size": [
+     0.045,
+     0.223,
+     0.014
+    ],
+    "radius": 0.004,
+    "position": [
+     1.225,
+     0.584,
+     0
+    ],
+    "rotation": [
+     0,
+     30,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#8c6a45",
+    "material": "metal"
+   },
+   {
+    "id": "lpt-3",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.065,
+     0.266,
+     0.018
+    ],
+    "radius": 0.005,
+    "position": [
+     1.3,
+     0.607,
+     0
+    ],
+    "rotation": [
+     0,
+     -46,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#c08a4e",
+    "material": "copper",
+    "label": "Low-pressure turbine"
+   },
+   {
+    "id": "lpt-vane-3",
+    "type": "box",
+    "size": [
+     0.045,
+     0.266,
+     0.014
+    ],
+    "radius": 0.004,
+    "position": [
+     1.375,
+     0.617,
+     0
+    ],
+    "rotation": [
+     0,
+     30,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#8c6a45",
+    "material": "metal"
+   },
+   {
+    "id": "lpt-4",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.065,
+     0.309,
+     0.018
+    ],
+    "radius": 0.005,
+    "position": [
+     1.45,
+     0.641,
+     0
+    ],
+    "rotation": [
+     0,
+     -46,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#c08a4e",
+    "material": "copper"
+   },
+   {
+    "id": "lpt-vane-4",
+    "type": "box",
+    "size": [
+     0.045,
+     0.309,
+     0.014
+    ],
+    "radius": 0.004,
+    "position": [
+     1.525,
+     0.651,
+     0
+    ],
+    "rotation": [
+     0,
+     30,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#8c6a45",
+    "material": "metal"
+   },
+   {
+    "id": "lpt-5",
+    "type": "box",
+    "parent": "lp-spool",
+    "size": [
+     0.065,
+     0.352,
+     0.018
+    ],
+    "radius": 0.005,
+    "position": [
+     1.6,
+     0.674,
+     0
+    ],
+    "rotation": [
+     0,
+     -46,
+     0
+    ],
+    "radial": 32,
+    "axis": "x",
+    "color": "#c08a4e",
+    "material": "copper"
+   },
+   {
+    "id": "lp-shaft",
+    "type": "cylinder",
+    "parent": "lp-spool",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "position": [
+     -0.12,
+     0,
+     0
+    ],
+    "radius": 0.075,
+    "height": 3.7,
+    "color": "#e6ebf0",
+    "material": "chrome",
+    "label": "Shafts"
+   },
+   {
+    "id": "hp-shaft",
+    "type": "cylinder",
+    "parent": "hp-spool",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "position": [
+     -0.08,
+     0,
+     0
+    ],
+    "radius": 0.17,
+    "height": 1.98,
+    "color": "#a3adb7",
+    "material": "metal"
+   },
+   {
+    "id": "tail-cone",
+    "type": "lathe",
+    "rotation": [
+     0,
+     0,
+     -90
+    ],
+    "color": "#7a838d",
+    "material": "metal",
+    "label": "Exhaust",
+    "points": [
+     [
+      0,
+      1.72
+     ],
+     [
+      0.5,
+      1.72
+     ],
+     [
+      0.52,
+      1.95
+     ],
+     [
+      0.46,
+      2.3
+     ],
+     [
+      0.32,
+      2.72
+     ],
+     [
+      0.15,
+      3.02
+     ],
+     [
+      0,
+      3.14
+     ]
+    ]
+   }
+  ]
+ },
+ "steps": [
+  {
+   "say": "This is a high-bypass turbofan, the engine under the wing of most airliners, cut open so you can see inside.",
+   "scene": [
+    {
+     "do": "camera",
+     "target": [
+      -0.4,
+      0.12,
+      0.1
+     ],
+     "value": 1.34,
+     "duration": 2.2
+    },
+    {
+     "do": "spin",
+     "target": "lp-spool",
+     "axis": "x",
+     "value": 0.2
+    },
+    {
+     "do": "spin",
+     "target": "hp-spool",
+     "axis": "x",
+     "value": 0.45
+    }
+   ]
+  },
+  {
+   "say": "The giant fan at the front spins thousands of times a minute, pulling in a huge gulp of air.",
+   "scene": [
+    {
+     "do": "spin",
+     "target": "lp-spool",
+     "axis": "x",
+     "value": 0.9
+    },
+    {
+     "do": "highlight",
+     "target": "fan-blades",
+     "duration": 1.6
+    },
+    {
+     "do": "camera",
+     "target": "fan-blades",
+     "value": 1.05,
+     "duration": 1.6
+    },
+    {
+     "do": "flow",
+     "id": "bypass-0",
+     "from": [
+      -4.2,
+      0.509,
+      1.261
+     ],
+     "via": [
+      [
+       -2.6,
+       0.498,
+       1.233
+      ],
+      [
+       -1.6,
+       0.498,
+       1.233
+      ],
+      [
+       -0.6,
+       0.494,
+       1.224
+      ],
+      [
+       0.6,
+       0.476,
+       1.178
+      ]
+     ],
+     "to": [
+      1.8,
+      0.45,
+      1.113
+     ],
+     "color": "#3b9dff",
+     "count": 16,
+     "size": 0.032
+    },
+    {
+     "do": "flow",
+     "id": "bypass-1",
+     "from": [
+      -4.2,
+      0.962,
+      0.962
+     ],
+     "via": [
+      [
+       -2.6,
+       0.94,
+       0.94
+      ],
+      [
+       -1.6,
+       0.94,
+       0.94
+      ],
+      [
+       -0.6,
+       0.933,
+       0.933
+      ],
+      [
+       0.6,
+       0.898,
+       0.898
+      ]
+     ],
+     "to": [
+      1.8,
+      0.849,
+      0.849
+     ],
+     "color": "#3b9dff",
+     "count": 16,
+     "size": 0.032
+    },
+    {
+     "do": "flow",
+     "id": "bypass-2",
+     "from": [
+      -4.2,
+      1.261,
+      0.509
+     ],
+     "via": [
+      [
+       -2.6,
+       1.233,
+       0.498
+      ],
+      [
+       -1.6,
+       1.233,
+       0.498
+      ],
+      [
+       -0.6,
+       1.224,
+       0.494
+      ],
+      [
+       0.6,
+       1.178,
+       0.476
+      ]
+     ],
+     "to": [
+      1.8,
+      1.113,
+      0.45
+     ],
+     "color": "#3b9dff",
+     "count": 16,
+     "size": 0.032
+    }
+   ]
+  },
+  {
+   "say": "Only about a tenth of that air goes into the core. The rest rushes around it through the bypass duct, and that cool air makes most of the thrust.",
+   "scene": [
+    {
+     "do": "camera",
+     "target": [
+      -0.4,
+      0.12,
+      0.1
+     ],
+     "value": 1.34,
+     "duration": 1.6
+    },
+    {
+     "do": "highlight",
+     "target": "nacelle",
+     "duration": 1.6
+    },
+    {
+     "do": "flow",
+     "id": "core-cold",
+     "from": [
+      -4.0,
+      0.438,
+      0.438
+     ],
+     "via": [
+      [
+       -2.4,
+       0.509,
+       0.509
+      ],
+      [
+       -1.75,
+       0.523,
+       0.523
+      ],
+      [
+       -1.45,
+       0.516,
+       0.516
+      ],
+      [
+       -1.0,
+       0.389,
+       0.389
+      ],
+      [
+       -0.3,
+       0.318,
+       0.318
+      ]
+     ],
+     "to": [
+      0.12,
+      0.339,
+      0.339
+     ],
+     "color": "#58a6ff",
+     "count": 12,
+     "size": 0.032
+    }
+   ]
+  },
+  {
+   "say": "Inside the core, row after row of compressor blades squeeze the air to around forty times normal pressure.",
+   "scene": [
+    {
+     "do": "spin",
+     "target": "hp-spool",
+     "axis": "x",
+     "value": 1.7
+    },
+    {
+     "do": "camera",
+     "target": [
+      -0.55,
+      0.15,
+      0.1
+     ],
+     "to": [
+      0.35,
+      2.3,
+      3.5
+     ],
+     "duration": 1.8
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-1",
+     "delay": 0.6,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-2",
+     "delay": 0.72,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-3",
+     "delay": 0.84,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-4",
+     "delay": 0.96,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-5",
+     "delay": 1.08,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-6",
+     "delay": 1.2,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-7",
+     "delay": 1.3199999999999998,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpc-8",
+     "delay": 1.44,
+     "duration": 1.1
+    }
+   ]
+  },
+  {
+   "say": "In the combustor, fuel sprays into that squeezed air and burns at over fifteen hundred degrees.",
+   "scene": [
+    {
+     "do": "camera",
+     "target": [
+      0.3,
+      0.1,
+      0.1
+     ],
+     "to": [
+      1.2,
+      2.0,
+      3.2
+     ],
+     "duration": 1.6
+    },
+    {
+     "do": "show",
+     "target": "flame",
+     "delay": 0.6,
+     "duration": 1.2
+    },
+    {
+     "do": "color",
+     "target": "combustor",
+     "color": "#ff9a52",
+     "delay": 0.6,
+     "duration": 1.2
+    },
+    {
+     "do": "flow",
+     "id": "core-hot",
+     "from": [
+      0.2,
+      0.354,
+      0.354
+     ],
+     "via": [
+      [
+       0.45,
+       0.354,
+       0.354
+      ],
+      [
+       0.75,
+       0.361,
+       0.361
+      ],
+      [
+       1.1,
+       0.41,
+       0.41
+      ],
+      [
+       1.45,
+       0.481,
+       0.481
+      ]
+     ],
+     "to": [
+      1.8,
+      0.509,
+      0.509
+     ],
+     "color": "#ff8a3d",
+     "count": 14,
+     "size": 0.032
+    }
+   ]
+  },
+  {
+   "say": "The hot gas blasts through the turbines and spins them. Shafts carry that power forward to turn the compressor and the fan.",
+   "scene": [
+    {
+     "do": "camera",
+     "target": [
+      1.2,
+      0.1,
+      0.1
+     ],
+     "to": [
+      2.3,
+      2.2,
+      3.6
+     ],
+     "duration": 1.6
+    },
+    {
+     "do": "highlight",
+     "target": "hpt-1",
+     "delay": 0.4,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "hpt-2",
+     "delay": 0.54,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "lpt-1",
+     "delay": 0.68,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "lpt-2",
+     "delay": 0.8200000000000001,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "lpt-3",
+     "delay": 0.9600000000000001,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "lpt-4",
+     "delay": 1.1,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "lpt-5",
+     "delay": 1.2400000000000002,
+     "duration": 1.1
+    },
+    {
+     "do": "highlight",
+     "target": "lp-shaft",
+     "delay": 1.8,
+     "duration": 1.6
+    }
+   ]
+  },
+  {
+   "say": "Out the back, hot exhaust from the core and cool air from the fan both push the plane forward.",
+   "scene": [
+    {
+     "do": "camera",
+     "target": [
+      -0.4,
+      0.12,
+      0.1
+     ],
+     "value": 1.34,
+     "duration": 1.8
+    },
+    {
+     "do": "flow",
+     "id": "exhaust-0",
+     "from": [
+      1.75,
+      0.35,
+      0.606
+     ],
+     "via": [
+      [
+       2.2,
+       0.35,
+       0.606
+      ],
+      [
+       2.8,
+       0.31,
+       0.537
+      ],
+      [
+       3.5,
+       0.275,
+       0.476
+      ]
+     ],
+     "to": [
+      4.4,
+      0.25,
+      0.433
+     ],
+     "color": "#ff5a4e",
+     "count": 14,
+     "size": 0.04
+    },
+    {
+     "do": "flow",
+     "id": "exhaust-1",
+     "from": [
+      1.75,
+      0.606,
+      0.35
+     ],
+     "via": [
+      [
+       2.2,
+       0.606,
+       0.35
+      ],
+      [
+       2.8,
+       0.537,
+       0.31
+      ],
+      [
+       3.5,
+       0.476,
+       0.275
+      ]
+     ],
+     "to": [
+      4.4,
+      0.433,
+      0.25
+     ],
+     "color": "#ff5a4e",
+     "count": 14,
+     "size": 0.04
+    }
+   ]
+  }
+ ]
+}

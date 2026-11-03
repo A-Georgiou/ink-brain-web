@@ -1,15 +1,15 @@
-// The hero's live replay: the BERT answer from the film, played through Ink Brain's real overlay, plus a pen to try it.
-import bert from "../specs/bert.json";
+// The hero's live demo: Ink Brain explaining a heart diagram on Wikipedia through its real overlay, plus a pen to try it.
+import heart from "../specs/heart-flow.json";
 import { createRun, playSteps, say } from "./explain.js";
 import { voice } from "./voice.js";
 
-const QUESTION = "This diagram does not make much sense to me, how does it work?";
-const SUMMARY = "The figure shows the same network used twice. First, BERT learns language from plain, unlabelled text using two guessing games. Then that trained brain is copied over and lightly retrained for each specific task. I'll walk through it on the figure.";
-// Where things sit on the 1512 by 982 point screen the answer was given on.
+const QUESTION = "Can you explain how blood flows through the heart?";
+const SUMMARY = "The heart is two pumps working side by side. The right side sends used blood to the lungs to pick up oxygen, and the left side pumps that fresh blood out to the rest of your body. I'll trace the path on the diagram.";
+// Where things sit on the 1512 by 982 point screen; the page starts below the browser's toolbar at y = 155.
 const SCREEN = { w: 1512, h: 982, top: 155 };
-const FIGURE = { x: 600, y: 405, w: 625, h: 235 };
-const ANSWER_AT = { x: 740, y: 700 };
-const PILL_AT = { x: 546, y: 912 };
+const FIGURE = { x: 500, y: 190, w: 520, h: 680 };
+const ANSWER_AT = { x: 1072, y: 470 };
+const PILL_AT = { x: 24, y: 930 };
 const OWNER = "stage";
 
 // A hand-drawn loop like the user's pen: slightly wobbly and overshooting where it started, smoothed into a dense polyline.
@@ -32,7 +32,7 @@ function loopPoints(cx, cy, rx, ry, seed = 11) {
     }
     return [...points, raw.at(-1)];
 }
-const LOOP = loopPoints(912, 520, 372, 150);
+const LOOP = loopPoints(758, 528, 296, 336);
 
 const overlapShare = (a, b) => {
     const w = Math.max(0, Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x));
@@ -97,20 +97,20 @@ export function initStage(root) {
         if (r.stopped) return false;
         send("state", { speaking: true });
         send("bubble", { ...ANSWER_AT, question: QUESTION, activity: "Speaking", text: SUMMARY });
-        setCaption("Ink Brain", "answers out loud first, then explains on the figure itself.");
-        await say(r, { name: "bert", index: 0, text: SUMMARY, owner: OWNER, pace: 0.6 });
+        setCaption("Ink Brain", "answers out loud first, then explains right on the diagram.");
+        await say(r, { name: "heart", index: 0, text: SUMMARY, owner: OWNER, pace: 0.6 });
         if (r.stopped) return false;
         send("clearInk");
         send("bubble", { ...PILL_AT, minimized: true, activity: "Explaining" });
-        const total = bert.steps.length;
+        const total = heart.steps.length;
         const done = await playSteps(r, {
-            name: "bert",
-            steps: bert.steps,
+            name: "heart",
+            steps: heart.steps,
             owner: OWNER,
             pace: 0.9,
             onStep: async (index, step) => {
                 const duration = await call("draw", { shapes: step.draw, group: "explain" });
-                send("captions", { state: "step", index, total, text: step.say, bottom: SCREEN.h - PILL_AT.y + 10 });
+                send("captions", { state: "step", index, total, text: step.say, bottom: 30, docked: true });
                 setCaption(`Step ${index + 1} of ${total}`, step.say);
                 return duration;
             },
@@ -129,11 +129,11 @@ export function initStage(root) {
         await loaded;
         while (!r.stopped) {
             send("reset");
-            setCaption("", "A real answer from Ink Brain, replayed live by its own drawing engine.");
+            setCaption("", "Ink Brain's own drawing engine, explaining a diagram on Wikipedia.");
             await r.wait(1000);
             if (r.stopped) break;
             send("pen", { on: true });
-            setCaption("You", "press ⌥⇧Space and circle the figure.");
+            setCaption("You", "press ⌥⇧Space and circle the diagram.");
             await r.wait(600);
             await r.wait(call("drawPath", { points: LOOP, ms: 1700 }));
             if (r.stopped) break;
@@ -153,7 +153,7 @@ export function initStage(root) {
         await loaded;
         send("reset");
         send("pen", { on: true, interactive: true });
-        setCaption("Your turn:", "circle or click the figure in the middle of the page, with your mouse or finger.");
+        setCaption("Your turn:", "circle or click the heart diagram, with your mouse or finger.");
         frame.focus({ preventScroll: true });
     }
 
@@ -190,7 +190,7 @@ export function initStage(root) {
             const { x, y, w, h } = data.bounds;
             const clicked = Math.max(w, h) < 8 && x >= FIGURE.x && x <= FIGURE.x + FIGURE.w && y >= FIGURE.y && y <= FIGURE.y + FIGURE.h;
             if (clicked || overlapShare(data.bounds, FIGURE) > 0.3) ask();
-            else send("toast", { text: "This replay knows one answer. Circle or click the figure in the middle of the page." });
+            else send("toast", { text: "This demo knows one answer. Circle or click the heart diagram." });
         } else if (data.type === "key" && data.key === "hotkey") {
             if (mode === "pen") leave();
             else startPen();
@@ -226,6 +226,6 @@ export function initStage(root) {
     frame.src = `${frame.dataset.src}${screen.clientWidth * devicePixelRatio > 1600 ? "?hd" : ""}`;
     if (still) {
         replay.hidden = false;
-        loaded.then(() => setCaption("", "Press Replay to watch Ink Brain explain a figure from the BERT paper."));
+        loaded.then(() => setCaption("", "Press Replay to watch Ink Brain explain how blood flows through the heart."));
     }
 }

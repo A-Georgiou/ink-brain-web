@@ -801,6 +801,10 @@ h3 {
     margin: 0;
 }
 
+.footer-credit {
+    flex-basis: 100%;
+}
+
 /* ------------------------------------------------ keyframes */
 
 @keyframes spin {

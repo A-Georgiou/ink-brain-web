@@ -1,0 +1,334 @@
+{
+ "title": "How blood flows through the heart",
+ "steps": [
+  {
+   "say": "On the diagram, the heart's right side is on your left. It handles used blood, drawn in blue. The left side handles fresh, oxygen-rich blood, drawn in red.",
+   "draw": [
+    {
+     "kind": "highlight",
+     "x": 580,
+     "y": 500,
+     "w": 72,
+     "h": 50,
+     "color": "#58a6ff"
+    },
+    {
+     "kind": "highlight",
+     "x": 703,
+     "y": 667,
+     "w": 96,
+     "h": 52,
+     "color": "#58a6ff"
+    },
+    {
+     "kind": "highlight",
+     "x": 780,
+     "y": 424,
+     "w": 68,
+     "h": 54,
+     "color": "#ff7b72"
+    },
+    {
+     "kind": "highlight",
+     "x": 855,
+     "y": 618,
+     "w": 92,
+     "h": 42,
+     "color": "#ff7b72"
+    },
+    {
+     "kind": "write",
+     "x": 60,
+     "y": 185,
+     "text": "Right side: used blood",
+     "color": "#58a6ff",
+     "size": 25
+    },
+    {
+     "kind": "write",
+     "x": 1170,
+     "y": 185,
+     "text": "Left side: fresh blood",
+     "color": "#ff7b72",
+     "size": 25
+    }
+   ]
+  },
+  {
+   "say": "Used blood from the body flows in through the two big veins, the venae cavae, and fills the right atrium.",
+   "draw": [
+    {
+     "kind": "arrow",
+     "from": [
+      603,
+      217
+     ],
+     "to": [
+      608,
+      443
+     ],
+     "color": "#58a6ff",
+     "bend": 0.02
+    },
+    {
+     "kind": "arrow",
+     "from": [
+      603,
+      860
+     ],
+     "to": [
+      608,
+      703
+     ],
+     "color": "#58a6ff",
+     "bend": -0.02
+    },
+    {
+     "kind": "highlight",
+     "x": 415,
+     "y": 261,
+     "w": 118,
+     "h": 50,
+     "color": "#58a6ff"
+    },
+    {
+     "kind": "highlight",
+     "x": 492,
+     "y": 833,
+     "w": 197,
+     "h": 26,
+     "color": "#58a6ff"
+    },
+    {
+     "kind": "callout",
+     "at": [
+      195,
+      380
+     ],
+     "x": 598,
+     "y": 527,
+     "text": "1  Blood from the body fills the right atrium",
+     "color": "#58a6ff",
+     "size": 22
+    }
+   ]
+  },
+  {
+   "say": "The right atrium squeezes it through the tricuspid valve into the right ventricle, which pumps it up through the pulmonary valve, out to the lungs.",
+   "draw": [
+    {
+     "kind": "arrow",
+     "from": [
+      622,
+      567
+     ],
+     "to": [
+      735,
+      707
+     ],
+     "color": "#58a6ff",
+     "bend": 0.42
+    },
+    {
+     "kind": "pulse",
+     "x": 655,
+     "y": 670,
+     "color": "#f2cc60"
+    },
+    {
+     "kind": "arrow",
+     "from": [
+      758,
+      690
+     ],
+     "to": [
+      727,
+      473
+     ],
+     "color": "#58a6ff",
+     "bend": -0.17
+    },
+    {
+     "kind": "pulse",
+     "x": 722,
+     "y": 563,
+     "color": "#f2cc60"
+    },
+    {
+     "kind": "arrow",
+     "from": [
+      738,
+      437
+     ],
+     "to": [
+      935,
+      341
+     ],
+     "color": "#58a6ff",
+     "bend": -0.28
+    },
+    {
+     "kind": "write",
+     "x": 975,
+     "y": 247,
+     "text": "to the lungs",
+     "color": "#58a6ff",
+     "size": 23
+    },
+    {
+     "kind": "callout",
+     "at": [
+      195,
+      755
+     ],
+     "x": 652,
+     "y": 667,
+     "text": "2  Through the tricuspid valve, then pumped up to the lungs",
+     "color": "#58a6ff",
+     "size": 22
+    }
+   ]
+  },
+  {
+   "say": "In the lungs it swaps carbon dioxide for oxygen, then flows back through the pulmonary veins into the left atrium.",
+   "draw": [
+    {
+     "kind": "arrow",
+     "from": [
+      1012,
+      417
+     ],
+     "to": [
+      852,
+      455
+     ],
+     "color": "#ff7b72",
+     "bend": 0.2
+    },
+    {
+     "kind": "highlight",
+     "x": 977,
+     "y": 364,
+     "w": 131,
+     "h": 52,
+     "color": "#ff7b72"
+    },
+    {
+     "kind": "callout",
+     "at": [
+      1318,
+      305
+     ],
+     "x": 990,
+     "y": 410,
+     "text": "3  Back from the lungs, full of oxygen",
+     "color": "#ff7b72",
+     "size": 22
+    }
+   ]
+  },
+  {
+   "say": "It drops through the mitral valve into the left ventricle. That chamber has the thickest wall, because it pushes blood around your whole body.",
+   "draw": [
+    {
+     "kind": "arrow",
+     "from": [
+      848,
+      485
+     ],
+     "to": [
+      905,
+      625
+     ],
+     "color": "#ff7b72",
+     "bend": -0.25
+    },
+    {
+     "kind": "pulse",
+     "x": 875,
+     "y": 515,
+     "color": "#f2cc60"
+    },
+    {
+     "kind": "callout",
+     "at": [
+      1318,
+      795
+     ],
+     "x": 978,
+     "y": 670,
+     "text": "4  The thickest wall pushes blood round the whole body",
+     "color": "#ff7b72",
+     "size": 22
+    }
+   ]
+  },
+  {
+   "say": "One strong squeeze sends it through the aortic valve and up the aorta to the body. And the valves snapping shut make the lub-dub of your heartbeat.",
+   "draw": [
+    {
+     "kind": "arrow",
+     "from": [
+      885,
+      607
+     ],
+     "to": [
+      803,
+      455
+     ],
+     "color": "#ff7b72",
+     "bend": 0.28
+    },
+    {
+     "kind": "arrow",
+     "from": [
+      795,
+      417
+     ],
+     "to": [
+      790,
+      203
+     ],
+     "color": "#ff7b72",
+     "bend": -0.12
+    },
+    {
+     "kind": "write",
+     "x": 832,
+     "y": 163,
+     "text": "to the body",
+     "color": "#ff7b72",
+     "size": 23
+    },
+    {
+     "kind": "lens",
+     "x": 692,
+     "y": 485,
+     "w": 216,
+     "h": 110,
+     "zoom": 1.45,
+     "at": [
+      1318,
+      530
+     ],
+     "color": "#f2cc60",
+     "text": "Valves snap shut: lub-dub",
+     "image": "/media/heart-valves.webp"
+    },
+    {
+     "kind": "pointer",
+     "x": 800,
+     "y": 550,
+     "points": [
+      [
+       1010,
+       775
+      ]
+     ],
+     "text": "lub-dub",
+     "click": true
+    }
+   ]
+  }
+ ]
+}
